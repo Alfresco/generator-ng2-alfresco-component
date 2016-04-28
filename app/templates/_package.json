@@ -1,0 +1,46 @@
+{
+  "name": "<%= projectName %>",
+  "description": "<%= description %>",
+  "version": "0.1.0",
+  "author": "<%= authorName %>",
+  "scripts": {
+    "build": "typings install && tsc",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings",
+    "coverage": "istanbul cover  jasmine-node -- -R spec",
+    "test": "typings install && tsc && live-server --open=tests-runner.html",
+    "lint": "node tslint './**/*.ts'",
+    "deploy": "live-server --open=demo.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= githubAccount %>/<%= projectName %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= githubAccount %>/<%= projectName %>/issues"
+  },
+  "dependencies": {
+    "angular2": "<%= angularVersion %>",
+    "es6-shim": "^0.35.0",
+    "ng2-translate": "1.11.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.26",
+    "zone.js": "0.6.10",
+    "dev-platform-js-api": "git+https://github.com/Alfresco/dev-platform-js-api.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "concurrently": "^2.0.0",
+    "coveralls": "^2.11.9",
+    "del": "^2.1.0",
+    "istanbul": "^0.4.3",
+    "jasmine-core": "2.4.1",
+    "live-server": "^0.9.2",
+    "tsconfig-glob": "^0.3.3",
+    "tslint": "^3.8.1",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  }
+}
