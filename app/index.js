@@ -183,7 +183,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_testFile.spec.ts'),
-      this.destinationPath('src/' + this.props.projectName + '.component.spec.ts'),
+      this.destinationPath('test/' + this.props.projectName + '.component.spec.ts'),
       {
         projectName: this.props.projectName,
         projectNameCamelCase: this.props.projectNameCamelCase

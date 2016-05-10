@@ -31,7 +31,7 @@
     });
     // #3. Import the spec file explicitly
     Promise.all([
-        System.import('src/<%= projectName %>.component.spec')
+        System.import('test/<%= projectName %>.component.spec.js')
       ])
       // #4. wait for all imports to load ...
       //     then re-execute `window.onload` which

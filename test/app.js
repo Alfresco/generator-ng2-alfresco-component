@@ -59,7 +59,7 @@ describe('generator-angular-2-component-light:app', function () {
         'tests-runner.html',
         'demo.html',
         'src/component-fake.component.ts',
-        'src/component-fake.component.spec.ts'
+        'test/component-fake.component.spec.ts'
       ];
 
       assert.file(expected);
@@ -86,8 +86,8 @@ describe('generator-angular-2-component-light:app', function () {
     });
 
     it('fills the test file with project data', function () {
-      assert.fileContent('src/component-fake.component.spec.ts', 'Hello World Angular 2 component-fake');
-      assert.fileContent('src/component-fake.component.spec.ts', 'ComponentFake');
+      assert.fileContent('test/component-fake.component.spec.ts', 'Hello World Angular 2 component-fake');
+      assert.fileContent('test/component-fake.component.spec.ts', 'ComponentFake');
     });
 
     it('fills the barrel file with project data', function () {

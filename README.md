@@ -51,7 +51,7 @@ Which will generate the following project structure:
     ├── my-element.ts
     ├── tests-runner.html
     ├── demo.html
-    ├── src/my-element-tests.component.ts
+    ├── test/my-element-tests.component.ts
     └── src/my-element.component.ts
 
 And run `npm install` for you to fetch all dependencies.
@@ -94,7 +94,7 @@ Contributor | GitHub profile | Twitter profile |
 --- | --- | ---
 Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
 
-All contributors[contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors).
+All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors).
 
 ## License
 [MIT](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
