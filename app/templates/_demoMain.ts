@@ -1,5 +1,5 @@
 
 import {bootstrap} from 'angular2/platform/browser';
-import {<%= projectNameCamelCase %>} from '../../src/<%= projectName %>.component';
+import {<%= projectNameCamelCase %>Component} from '../../src/<%= projectName %>.component';
 
-bootstrap(<%= projectNameCamelCase %>);
+bootstrap(<%= projectNameCamelCase %>Component);

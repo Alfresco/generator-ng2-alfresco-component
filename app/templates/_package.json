@@ -10,8 +10,8 @@
     "typings": "typings",
     "coverage": "istanbul cover jasmine-node -- -R spec",
     "test": "typings install && tsc && live-server --open=tests-runner.html",
-    "lint": "node tslint './**/*.ts'",
-    "deploy": "npm run build && live-server --open=demo/demo.html"
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "deploy": "npm run lint  && npm run build && live-server --open=demo/demo.html"
   },
   "repository": {
     "type": "git",

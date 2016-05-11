@@ -11,4 +11,4 @@ import {Component} from 'angular2/core';
     ],
     template: `<H1>Hello World Angular 2 <%= projectName %></H1>`
 })
-export class <%= projectNameCamelCase %> {}
+export class <%= projectNameCamelCase %>Component {}
