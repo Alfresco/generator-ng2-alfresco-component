@@ -57,7 +57,8 @@ describe('generator-angular-2-component-light:app', function () {
         'tslint.json',
         'component-fake.ts',
         'tests-runner.html',
-        'demo.html',
+        'demo/demo.html',
+        'demo/app/main.ts',
         'src/component-fake.component.ts',
         'test/component-fake.component.spec.ts'
       ];
@@ -99,7 +100,11 @@ describe('generator-angular-2-component-light:app', function () {
     });
 
     it('fills the demo file with project data', function () {
-      assert.fileContent('demo.html', 'component-fake Angular 2');
+      assert.fileContent('demo/demo.html', 'component-fake Angular 2');
+    });
+
+    it('fills the main file with project data', function () {
+      assert.fileContent('demo/app/main.ts', 'component-fake.component');
     });
   });
 });

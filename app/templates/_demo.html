@@ -16,15 +16,14 @@
     //     for imports from the app folder
     System.config({
       packages: {
-        'src': {defaultExtension: 'js'}
+        'app': {defaultExtension: 'js'},
+        '../src': {defaultExtension: 'js'}
       }
     });
+
     // #3. Import the spec file explicitly
-    Promise.all([
-        System.import('<%= projectName %>.js')
-      ])
-      .then(window.onload)
-      .catch(console.error.bind(console));
+    System.import('app/main')
+      .then(null, console.error.bind(console));
   </script>
 </head>
 <!-- 3. Display the application -->

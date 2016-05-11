@@ -8,10 +8,10 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "coverage": "istanbul cover  jasmine-node -- -R spec",
+    "coverage": "istanbul cover jasmine-node -- -R spec",
     "test": "typings install && tsc && live-server --open=tests-runner.html",
     "lint": "node tslint './**/*.ts'",
-    "deploy": "live-server --open=demo.html"
+    "deploy": "npm run build && live-server --open=demo/demo.html"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.10.0",
+    "codelyzer": "0.0.19",
     "concurrently": "^2.0.0",
     "coveralls": "^2.11.9",
     "del": "^2.1.0",

@@ -200,8 +200,17 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_demo.html'),
-      this.destinationPath('demo.html'),
+      this.destinationPath('demo/demo.html'),
       {
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_demoMain.ts'),
+      this.destinationPath('demo/app/main.ts'),
+      {
+        projectNameCamelCase: this.props.projectNameCamelCase,
         projectName: this.props.projectName
       }
     );

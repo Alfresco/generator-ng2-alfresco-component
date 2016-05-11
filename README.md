@@ -50,7 +50,8 @@ Which will generate the following project structure:
     ├── README.md
     ├── my-element.ts
     ├── tests-runner.html
-    ├── demo.html
+    ├── demo/demo.html
+    ├── demo/app/main.ts
     ├── test/my-element-tests.component.ts
     └── src/my-element.component.ts
 
