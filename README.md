@@ -31,7 +31,18 @@ npm install -g yo
 npm install -g generator-ng2-alfresco-component
 ```
 
+##  Use before the release on npm need this steps:
+
+```bash
+npm install -g yo
+git clone https://github.com/Alfresco/generator-ng2-alfresco-component.git
+cd generator-ng2-alfresco-component
+npm link
+```
+
 ##  Generate your new project:
+
+First, move in the folder where you want create your project.
 
 ```bash
 yo ng2-alfresco-component
