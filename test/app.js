@@ -37,6 +37,7 @@ describe('generator-angular-2-component-light:app', function () {
           keywords: ['generator-keyword', 'component-keyword', 'angular2-keyword'],
           license: 'MIT'
         })
+        .withOptions({'skip-install': true})
         .on('end', done);
     });
 
