@@ -228,7 +228,7 @@ module.exports = yeoman.Base.extend({
     );
 
     var currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
-    this.props.keywords.push("alfresco-component");
+    this.props.keywords.push('alfresco-component');
 
     var pkg = _.extend({
       keywords: this.props.keywords
@@ -255,12 +255,7 @@ module.exports = yeoman.Base.extend({
     }, {
       local: require.resolve('generator-license/app')
     });
-  },
-
-  install: function () {
-    if (!this.options['skip-install']) {
-        this.npmInstall();
-    }
   }
+
 });
 
