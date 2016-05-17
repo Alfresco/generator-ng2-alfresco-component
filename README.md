@@ -62,7 +62,6 @@ Which will generate the following project structure:
     ├── LICENSE
     ├── README.md
     ├── my-element.ts
-    ├── tests-runner.html
     ├── assets/license_header.txt
     ├── demo/demo.html
     ├── demo/app/main.ts

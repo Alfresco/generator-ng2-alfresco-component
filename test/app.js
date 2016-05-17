@@ -57,7 +57,6 @@ describe('generator-angular-2-component-light:app', function () {
         'tsconfig.json',
         'tslint.json',
         'component-fake.ts',
-        'tests-runner.html',
         'karma.conf.js',
         'karma-test-shim.js',
         'assets/license_header.txt',
@@ -97,10 +96,6 @@ describe('generator-angular-2-component-light:app', function () {
 
     it('fills the barrel file with project data', function () {
       assert.fileContent('component-fake.ts', './src/component-fake.component');
-    });
-
-    it('fills the test runner file with project data', function () {
-      assert.fileContent('tests-runner.html', 'component-fake component Tests');
     });
 
     it('fills the demo file with project data', function () {
