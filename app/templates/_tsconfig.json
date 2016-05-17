@@ -3,14 +3,22 @@
     "target": "es5",
     "module": "system",
     "moduleResolution": "node",
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "sourceMap": true,
+    "removeComments": true,
+    "declaration": true,
+    "noLib": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "noImplicitAny": false,
-    "declaration": true
+    "noImplicitReturns": false,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "dist"
   },
   "exclude": [
+    "demo",
     "node_modules",
     "typings/main",
     "typings/main.d.ts"

@@ -40,10 +40,16 @@ Method        | Parameters   | Returns     | Description
     $ npm run test
     ```
 
+* To run the test coverage
+
+    ```sh
+    $ npm run coverage
+    ```
+
 * To build the distribution files before releasing a new version.
 
     ```sh
-    $ npm run build
+    $ npm run start
     ```
 
 * To provide a live demo

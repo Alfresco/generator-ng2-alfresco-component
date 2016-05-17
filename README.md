@@ -57,13 +57,16 @@ Which will generate the following project structure:
     ├── tslint.json
     ├── package.json
     ├── typings.json
+    ├── karma.conf.js
+    ├── karma-test-shim.js
     ├── LICENSE
     ├── README.md
     ├── my-element.ts
     ├── tests-runner.html
+    ├── assets/license_header.txt
     ├── demo/demo.html
     ├── demo/app/main.ts
-    ├── test/my-element-tests.component.ts
+    ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts
 
 And run `npm install` for you to fetch all dependencies.

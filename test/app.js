@@ -58,10 +58,13 @@ describe('generator-angular-2-component-light:app', function () {
         'tslint.json',
         'component-fake.ts',
         'tests-runner.html',
+        'karma.conf.js',
+        'karma-test-shim.js',
+        'assets/license_header.txt',
         'demo/demo.html',
         'demo/app/main.ts',
         'src/component-fake.component.ts',
-        'test/component-fake.component.spec.ts'
+        'src/component-fake.component.spec.ts'
       ];
 
       assert.file(expected);

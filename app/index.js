@@ -133,6 +133,21 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
+    this.fs.copyTpl(
+      this.templatePath('_license_header.txt'),
+      this.destinationPath('assets/license_header.txt')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_karma.conf.js'),
+      this.destinationPath('karma.conf.js')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_karma-test-shim.js'),
+      this.destinationPath('karma-test-shim.js')
+    );
+
     this.fs.copy(
       this.templatePath('_tsconfig.json'),
       this.destinationPath('tsconfig.json')
@@ -183,7 +198,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_testFile.spec.ts'),
-      this.destinationPath('test/' + this.props.projectName + '.component.spec.ts'),
+      this.destinationPath('src/' + this.props.projectName + '.component.spec.ts'),
       {
         projectName: this.props.projectName,
         projectNameCamelCase: this.props.projectNameCamelCase
@@ -255,7 +270,11 @@ module.exports = yeoman.Base.extend({
     }, {
       local: require.resolve('generator-license/app')
     });
+  },
+
+  install: function () {
+    if (!this.options['skip-install']) {
+      this.npmInstall();
+    }
   }
-
 });
-
