@@ -48,6 +48,8 @@ First, move in the folder where you want create your project.
 yo ng2-alfresco-component
 ```
 
+<img src="assets/generator.png" alt='alfresco generator' >
+
 Which will generate the following project structure:
 
 
