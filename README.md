@@ -23,14 +23,14 @@
 >Yeoman generator generating a Angular2 Alfresco Component scaffold
 
 ##  Use before the release on npm need this steps:
-Private Npm repository configuration. All the components are stored in our private repository, the address is [http://52.51.231.43:4873](http://52.51.231.43:4873).
+Private Npm repository configuration. All the components are stored in our private repository, the address is [http://devproducts.alfresco.me:4873](http://devproducts.alfresco.me:4873).
 The repository is visible only from the Alfresco VPN.
 
 How to configure it:
 
 ```bash
-npm set registry http://52.51.231.43:4873
-npm adduser --registry http://52.51.231.43:4873
+npm set registry http://devproducts.alfresco.me:4873
+npm adduser --registry http://devproducts.alfresco.me:4873
 ```
 
 ## Installation and use

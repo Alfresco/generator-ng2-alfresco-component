@@ -60,7 +60,7 @@
     "test": "gulp"
   },
   "publishConfig": {
-    "registry": "http://52.51.231.43:4873/"
+    "registry": "http://devproducts.alfresco.me:4873/"
   },
   "license": "MIT"
 }
