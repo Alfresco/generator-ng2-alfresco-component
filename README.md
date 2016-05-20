@@ -22,6 +22,17 @@
 
 >Yeoman generator generating a Angular2 Alfresco Component scaffold
 
+##  Use before the release on npm need this steps:
+Private Npm repository configuration. All the components are stored in our private repository, the address is [http://52.51.231.43:4873](http://52.51.231.43:4873).
+The repository is visible only from the Alfresco VPN.
+
+How to configure it:
+
+```bash
+npm set registry http://52.51.231.43:4873
+npm adduser --registry http://52.51.231.43:4873
+```
+
 ## Installation and use
 
 First, install [Yeoman](http://yeoman.io) and generator-ng2-alfresco-component using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -29,15 +40,6 @@ First, install [Yeoman](http://yeoman.io) and generator-ng2-alfresco-component u
 ```bash
 npm install -g yo
 npm install -g generator-ng2-alfresco-component
-```
-
-##  Use before the release on npm need this steps:
-
-```bash
-npm install -g yo
-git clone https://github.com/Alfresco/generator-ng2-alfresco-component.git
-cd generator-ng2-alfresco-component
-npm link
 ```
 
 ##  Generate your new project:
