@@ -206,31 +206,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_tests-runner.html'),
-      this.destinationPath('tests-runner.html'),
-      {
-        projectName: this.props.projectName
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('_demo.html'),
-      this.destinationPath('demo/demo.html'),
-      {
-        projectName: this.props.projectName
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('_demoMain.ts'),
-      this.destinationPath('demo/app/main.ts'),
-      {
-        projectNameCamelCase: this.props.projectNameCamelCase,
-        projectName: this.props.projectName
-      }
-    );
-
-    this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
       {
@@ -270,6 +245,71 @@ module.exports = yeoman.Base.extend({
     }, {
       local: require.resolve('generator-license/app')
     });
+  },
+
+  writeDemo: function () {
+    this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_demoIndex.html'),
+      this.destinationPath('demo/index.html'),
+      {
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_demoMain.ts'),
+      this.destinationPath('demo/src/main.ts'),
+      {
+        projectNameCamelCase: this.props.projectNameCamelCase,
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_.editorconfig'),
+      this.destinationPath('demo/.editorconfig')
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_.gitignore'),
+      this.destinationPath('demo/.gitignore')
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_tsconfig.json'),
+      this.destinationPath('demo/tsconfig.json')
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_tslint.json'),
+      this.destinationPath('demo/tslint.json')
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_typings.json'),
+      this.destinationPath('demo/typings.json')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_package.json'),
+      this.destinationPath('demo/package.json'),
+      {
+        projectName: this.props.projectName,
+        description: this.props.description,
+        authorName: this.props.authorName,
+        angularVersion: this.props.angularVersion
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_README.md'),
+      this.destinationPath('demo/README.md'),
+      {
+        projectName: this.props.projectName
+      }
+    );
   },
 
   install: function () {

@@ -67,7 +67,14 @@ Which will generate the following project structure:
     ├── README.md
     ├── my-element.ts
     ├── assets/license_header.txt
-    ├── demo/demo.html
+    ├── demo/.gitignore
+    ├── demo/.editorconfig
+    ├── demo/package.json
+    ├── demo/tsconfig.json
+    ├── demo/tslint.json
+    ├── demo/typings.json
+    ├── demo/README.html
+    ├── demo/index.html
     ├── demo/app/main.ts
     ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts

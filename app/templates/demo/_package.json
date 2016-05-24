@@ -1,0 +1,47 @@
+{
+  "name": "<%= projectName %>-demo",
+  "description": "<%= description %> - Demo",
+  "version": "0.1.0",
+  "author": "<%= authorName %>",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install ../",
+    "postinstall": "npm run typings && npm run build",
+    "typings": "typings install",
+    "start": "rm -rf dist && npm install && npm run server",
+    "server": "lite-server",
+    "build": "npm run tslint &&  rm -rf dist && tsc",
+    "tslint": "npm run tslint-src && npm run tslint-root",
+    "tslint-src": "tslint -c tslint.json src/**/*.ts",
+    "tslint-root": "tslint -c tslint.json *.ts"
+  },
+  "keywords": [
+    "ng2",
+    "angular",
+    "angular2",
+    "alfresco",
+    "demo"
+  ],
+  "dependencies": {
+    "alfresco-core-rest-api": "^0.1.0",
+    "angular2": "<%= angularVersion %>",
+    "es6-shim": "^0.35.0",
+    "material-design-icons": "^2.2.3",
+    "material-design-lite": "^1.1.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.26",
+    "zone.js": "0.6.10"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "tslint": "^3.8.1",
+    "typescript": "^1.8.10",
+    "typings": "^0.7.12"
+  },
+  "publishConfig": {
+    "registry": "http://devproducts.alfresco.me:4873/"
+  }
+}

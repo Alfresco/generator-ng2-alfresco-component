@@ -14,8 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Component } from 'angular2/core';
+import { bootstrap } from 'angular2/platform/browser';
+import { <%= projectNameCamelCase %>Component } from '<%= projectName %>/dist/<%= projectName %>';
 
-import {bootstrap} from 'angular2/platform/browser';
-import {<%= projectNameCamelCase %>Component} from '../../src/<%= projectName %>.component';
-
-bootstrap(<%= projectNameCamelCase %>Component);
+@Component({
+  selector: 'my-app',
+  template: `<<%= projectName %>></<%= projectName %>>`,
+  directives: [<%= projectNameCamelCase %>Component]
+})
+class MyDemoApp {
+  constructor() {
+    console.log('constructor');
+  }
+}
+bootstrap(MyDemoApp, [
+  <%= projectNameCamelCase %>Component
+]);

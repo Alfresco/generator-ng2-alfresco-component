@@ -1,12 +1,11 @@
 {
   "name": "generator-ng2-alfresco-component",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Yeoman generator generating angular 2 Alfresco component",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-component",
   "author": {
     "name": "Eugenio Romano",
-    "email": "eugenio.romano@alfresco.com",
-    "url": ""
+    "email": "eugenio.romano@alfresco.com"
   },
   "files": [
     "generators"

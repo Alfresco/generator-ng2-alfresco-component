@@ -5,7 +5,7 @@ var helpers = require('yeoman-test');
 var mockery = require('mockery');
 var os = require('os');
 
-describe('generator-angular-2-component-light:app', function () {
+describe('Alfresco component generator', function () {
   before(function () {
     mockery.enable({
       warnOnReplace: false,
@@ -28,7 +28,7 @@ describe('generator-angular-2-component-light:app', function () {
         .inDir(path.join(os.tmpdir(), './temp'))
         .withPrompts({
           projectName: 'component-fake',
-          angularVersion: '2.0.0-beta.15',
+          angularVersion: '2.0.0-beta.Try',
           description: 'A awesome angular 2 component',
           githubAccount: 'componentCreatorAccount',
           authorName: 'Alfresco Team',
@@ -60,8 +60,15 @@ describe('generator-angular-2-component-light:app', function () {
         'karma.conf.js',
         'karma-test-shim.js',
         'assets/license_header.txt',
-        'demo/demo.html',
-        'demo/app/main.ts',
+        'demo/.gitignore',
+        'demo/.editorconfig',
+        'demo/tsconfig.json',
+        'demo/tslint.json',
+        'demo/typings.json',
+        'demo/package.json',
+        'demo/README.md',
+        'demo/index.html',
+        'demo/src/main.ts',
         'src/component-fake.component.ts',
         'src/component-fake.component.spec.ts'
       ];
@@ -76,9 +83,10 @@ describe('generator-angular-2-component-light:app', function () {
     });
 
     it('fills the package.json with project data', function () {
-      assert.fileContent('package.json', '"angular2": "2.0.0-beta.15"');
+      assert.fileContent('package.json', '"angular2": "2.0.0-beta.Try"');
       assert.fileContent('package.json', '"name": "component-fake"');
       assert.fileContent('package.json', '"author": "Alfresco Team"');
+      assert.fileContent('package.json', '"description": "A awesome angular 2 component"');
       assert.fileContent('package.json', '"url": "https://github.com/componentCreatorAccount/component-fake/issues"');
       assert.fileContent('package.json', '"alfresco-component"');
       assert.fileContent('package.json', '"generator-keyword"');
@@ -90,20 +98,32 @@ describe('generator-angular-2-component-light:app', function () {
     });
 
     it('fills the test file with project data', function () {
-      assert.fileContent('test/component-fake.component.spec.ts', 'Hello World Angular 2 component-fake');
-      assert.fileContent('test/component-fake.component.spec.ts', 'ComponentFake');
+      assert.fileContent('src/component-fake.component.spec.ts', 'Hello World Angular 2 component-fake');
+      assert.fileContent('src/component-fake.component.spec.ts', 'ComponentFake');
     });
 
     it('fills the barrel file with project data', function () {
       assert.fileContent('component-fake.ts', './src/component-fake.component');
     });
 
+    it('fills the demo package.json with project data', function () {
+      assert.fileContent('demo/package.json', '"angular2": "2.0.0-beta.Try"');
+      assert.fileContent('demo/package.json', '"name": "component-fake-demo"');
+      assert.fileContent('demo/package.json', '"description": "A awesome angular 2 component - Demo"');
+      assert.fileContent('demo/package.json', '"author": "Alfresco Team"');
+      assert.fileContent('demo/package.json', '"component-fake": "^0.1.0"');
+    });
+
+    it('fills the demo README with project data', function () {
+      assert.fileContent('demo/README.md', 'component-fake - Demo');
+    });
+
     it('fills the demo file with project data', function () {
-      assert.fileContent('demo/demo.html', 'component-fake Angular 2');
+      assert.fileContent('demo/index.html', 'component-fake Angular 2');
     });
 
     it('fills the main file with project data', function () {
-      assert.fileContent('demo/app/main.ts', 'component-fake.component');
+      assert.fileContent('demo/src/main.ts', 'component-fake.component');
     });
   });
 });

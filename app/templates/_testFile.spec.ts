@@ -22,7 +22,7 @@ import {<%= projectNameCamelCase %>Component} from '../src/<%= projectName %>.co
 describe('Basic Example test <%= projectName %>', () => {
   setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
-  it('Test hello world', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+  it('Test hello world', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(<%= projectNameCamelCase %>Component)
       .then((fixture) => {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= projectName %> Angular 2</title>
+    <base href="/">
+
+    <link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
+    <script src="node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
+
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+
+    <script>
+
+      System.config({
+        defaultJSExtensions: true,
+        map: {
+          '<%= projectName %>': 'node_modules/<%= projectName %>',
+          'rxjs': 'node_modules/rxjs',
+          'angular2': 'node_modules/angular2',
+          'app': 'dist/main'
+        },
+        packages: {
+          'src': {
+            defaultExtension: 'js'
+          },
+          '<%= projectName %>': {
+            defaultExtension: 'js'
+          },
+          'rxjs': {
+            defaultExtension: 'js'
+          },
+          'angular2': {
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app').catch(console.log.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <<%= projectName %>>Loading...</<%= projectName %>>
+  </body>
+
+</html>
+
+
