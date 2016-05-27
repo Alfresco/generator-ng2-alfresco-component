@@ -19,37 +19,16 @@
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
+    <script src="systemjs.config.js"></script>
     <script>
-
-      System.config({
-        defaultJSExtensions: true,
-        map: {
-          '<%= projectName %>': 'node_modules/<%= projectName %>',
-          'rxjs': 'node_modules/rxjs',
-          'angular2': 'node_modules/angular2',
-          'app': 'dist/main'
-        },
-        packages: {
-          'src': {
-            defaultExtension: 'js'
-          },
-          '<%= projectName %>': {
-            defaultExtension: 'js'
-          },
-          'rxjs': {
-            defaultExtension: 'js'
-          },
-          'angular2': {
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app').catch(console.log.bind(console));
+      System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
 
   <body>
-    <my-app>Loading...</my-app>
+    <my-app>
+      <div id="loader-spin"  class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    </my-app>
   </body>
 
 </html>

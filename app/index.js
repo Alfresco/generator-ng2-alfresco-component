@@ -310,6 +310,14 @@ module.exports = yeoman.Base.extend({
         projectName: this.props.projectName
       }
     );
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_systemjs.config.js'),
+      this.destinationPath('demo/systemjs.config.js'),
+      {
+        projectName: this.props.projectName
+      }
+    );
   },
 
   install: function () {

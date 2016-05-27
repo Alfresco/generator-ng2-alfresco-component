@@ -69,6 +69,7 @@ describe('Alfresco component generator', function () {
         'demo/README.md',
         'demo/index.html',
         'demo/src/main.ts',
+        'demo/systemjs.config.js',
         'src/component-fake.component.ts',
         'src/component-fake.component.spec.ts'
       ];
@@ -111,7 +112,7 @@ describe('Alfresco component generator', function () {
       assert.fileContent('demo/package.json', '"name": "component-fake-demo"');
       assert.fileContent('demo/package.json', '"description": "A awesome angular 2 component - Demo"');
       assert.fileContent('demo/package.json', '"author": "Alfresco Team"');
-      assert.fileContent('demo/package.json', '"component-fake": "^0.1.0"');
+      assert.fileContent('demo/package.json', '"component-fake": "file:../"');
     });
 
     it('fills the demo README with project data', function () {
@@ -122,8 +123,12 @@ describe('Alfresco component generator', function () {
       assert.fileContent('demo/index.html', 'component-fake Angular 2');
     });
 
+    it('fills the systemjs.config.js file with project data', function () {
+      assert.fileContent('demo/systemjs.config.js', '\'component-fake\': \'node_modules/component-fake\'');
+    });
+
     it('fills the main file with project data', function () {
-      assert.fileContent('demo/src/main.ts', 'component-fake.component');
+      assert.fileContent('demo/src/main.ts', 'component-fake/dist/component-fake');
     });
   });
 });
