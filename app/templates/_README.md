@@ -39,6 +39,12 @@ Method        | Parameters   | Returns     | Description
     ```sh
     $ npm run test
     ```
+    
+* To run the test in the browser
+
+    ```sh
+    $ npm run test-browser
+    ```    
 
 * To run the test coverage
 
