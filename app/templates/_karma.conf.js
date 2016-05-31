@@ -36,6 +36,11 @@ module.exports = function (config) {
       '/src/': '/base/src/'
     },
 
+    // list of files to exclude
+    exclude: [
+      'node_modules/**/*spec.js'
+    ],
+
     port: 9876,
 
     // level of logging
@@ -72,7 +77,7 @@ module.exports = function (config) {
       reporters: [
         {type: 'text'},
         {type: 'text-summary'},
-        {type: 'json', subdir: '.', file: 'coverage-final.json'},
+        {type: 'json', file: 'coverage-final.json'},
         {type: 'html'}
       ]
     }
