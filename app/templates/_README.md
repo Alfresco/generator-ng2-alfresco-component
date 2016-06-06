@@ -52,6 +52,19 @@ Method        | Parameters   | Returns     | Description
     $ npm run coverage
     ```
 
+        
+* To build the files
+
+    ```sh
+    $ npm run build:w
+    ```
+    
+* To build the files and keep watching the modify
+
+    ```sh
+    $ npm run build:w
+    ```
+
 * To build the distribution files before releasing a new version.
 
     ```sh
