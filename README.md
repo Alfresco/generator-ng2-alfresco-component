@@ -73,6 +73,7 @@ Which will generate the following project structure:
     ├── demo/README.html
     ├── demo/index.html
     ├── demo/app/main.ts
+    ├── demo/browser-sync-config.js
     ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts
 
