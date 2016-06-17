@@ -189,7 +189,6 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    console.log(1);
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
