@@ -15,14 +15,18 @@
  * limitations under the License.
  */
 
-import {describe, expect, it, injectAsync, TestComponentBuilder, setBaseTestProviders} from 'angular2/testing';
-import {TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
+import {describe, expect, it, inject, setBaseTestProviders} from '@angular/core/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import {
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from '@angular/platform-browser-dynamic/testing';
 import {<%= projectNameCamelCase %>Component} from '../src/<%= projectName %>.component';
 
 describe('Basic Example test <%= projectName %>', () => {
-  setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+  setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
-  it('Test hello world', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+  it('Test hello world', inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(<%= projectNameCamelCase %>Component)
       .then((fixture) => {

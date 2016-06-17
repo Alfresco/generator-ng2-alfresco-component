@@ -28,7 +28,6 @@ describe('Alfresco component generator', function () {
         .inDir(path.join(os.tmpdir(), './temp'))
         .withPrompts({
           projectName: 'component-fake',
-          angularVersion: '2.0.0-beta.Try',
           description: 'A awesome angular 2 component',
           githubAccount: 'componentCreatorAccount',
           authorName: 'Alfresco Team',
@@ -70,6 +69,7 @@ describe('Alfresco component generator', function () {
         'demo/index.html',
         'demo/src/main.ts',
         'demo/systemjs.config.js',
+        'demo/browser-sync-config.js',
         'src/component-fake.component.ts',
         'src/component-fake.component.spec.ts'
       ];
@@ -84,7 +84,6 @@ describe('Alfresco component generator', function () {
     });
 
     it('fills the package.json with project data', function () {
-      assert.fileContent('package.json', '"angular2": "2.0.0-beta.Try"');
       assert.fileContent('package.json', '"name": "component-fake"');
       assert.fileContent('package.json', '"author": "Alfresco Team"');
       assert.fileContent('package.json', '"description": "A awesome angular 2 component"');
@@ -108,7 +107,6 @@ describe('Alfresco component generator', function () {
     });
 
     it('fills the demo package.json with project data', function () {
-      assert.fileContent('demo/package.json', '"angular2": "2.0.0-beta.Try"');
       assert.fileContent('demo/package.json', '"name": "component-fake-demo"');
       assert.fileContent('demo/package.json', '"description": "A awesome angular 2 component - Demo"');
       assert.fileContent('demo/package.json', '"author": "Alfresco Team"');

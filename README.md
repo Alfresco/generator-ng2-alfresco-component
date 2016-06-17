@@ -121,3 +121,6 @@ All contributors [contributors](https://github.com/alfresco/generator-ng2-alfres
 ## License
 [MIT](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
  
+
+ * 2016-06-17  v0.0.19 Angular RC2
+ * 2016-06-03  v0.0.18 Angular Beta  

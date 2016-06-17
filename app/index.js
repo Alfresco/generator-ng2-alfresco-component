@@ -44,22 +44,6 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
-  askForAngularVersion: function () {
-    var done = this.async();
-
-    var prompts = [{
-      type: 'list',
-      name: 'angularVersion',
-      message: 'What Version of Angular2 do you want to use?',
-      choices: ['2.0.0-beta.15', '2.0.0-beta.16']
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.props = _.extend(this.props, props);
-      done();
-    }.bind(this));
-  },
-
   default: function () {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
@@ -205,6 +189,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    console.log(1);
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
@@ -212,7 +197,6 @@ module.exports = yeoman.Base.extend({
         projectName: this.props.projectName,
         description: this.props.description,
         authorName: this.props.authorName,
-        angularVersion: this.props.angularVersion,
         githubAccount: this.props.githubAccount
       }
     );
@@ -298,9 +282,13 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         description: this.props.description,
-        authorName: this.props.authorName,
-        angularVersion: this.props.angularVersion
+        authorName: this.props.authorName
       }
+    );
+
+    this.fs.copy(
+      this.templatePath('demo/_browser-sync-config.js'),
+      this.destinationPath('demo/browser-sync-config.js')
     );
 
     this.fs.copyTpl(
