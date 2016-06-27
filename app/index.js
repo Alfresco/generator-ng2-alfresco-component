@@ -1,6 +1,6 @@
 'use strict';
+var alflogo = require('alfresco-logo');
 var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
 var askName = require('inquirer-npm-name');
 var githubUsername = require('github-username');
 var path = require('path');
@@ -26,9 +26,9 @@ module.exports = yeoman.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.log(yosay(
-      'Welcome to the awesome angular 2 component generator!'
-    ));
+    this.log(alflogo(
+      'Welcome to the awesome\nAngular 2 component\ngenerator for Alfresco!\n',
+      {'left-pad': '     '}));
 
     askName({
       name: 'projectName',
