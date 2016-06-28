@@ -33,13 +33,13 @@ necessary configuration, see this [page](https://github.com/Alfresco/app-dev-fra
 First, install [Yeoman](http://yeoman.io):
 
 ```bash
-$ sudo npm install -g yo
+$ npm install -g yo
 ```
 
 Then the Alfresco Component Generator:
  
 ```bash
-$ sudo npm install -g generator-ng2-alfresco-component
+$ npm install -g generator-ng2-alfresco-component
 ```
  
 ##  Generating a new component project
