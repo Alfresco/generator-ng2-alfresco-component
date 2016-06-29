@@ -8,4 +8,5 @@ install: npm install
 sudo: false
 after_success:
   npm run-script test
+  npm run coveralls
 after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
