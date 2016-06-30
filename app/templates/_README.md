@@ -34,7 +34,8 @@ Method        | Parameters   | Returns     | Description
 
 ## Develop command list 
 
-* To test your project
+
+* To test your component
 
     ```sh
     $ npm run test
@@ -51,32 +52,32 @@ Method        | Parameters   | Returns     | Description
     ```sh
     $ npm run coverage
     ```
-
         
-* To build the files
+* To build the component
 
     ```sh
-    $ npm run build:w
+    $ npm run build
     ```
     
-* To build the files and keep watching the modify
+* To build the component and keep watching the changes
 
     ```sh
     $ npm run build:w
-    ```
-
-* To build the distribution files before releasing a new version.
-
-    ```sh
-    $ npm run start
     ```
 
 * To provide a live demo
 
     ```sh
-    $ npm run deploy
+    $ cd demo
+    $ npm run start
     ```
+    
+* To clean npm_modules and typings folder
 
+    ```sh
+    $ npm run clean
+    ```
+    
 ## History
 
 For detailed changelog, check [Releases](https://github.com/<%= githubAccount %>/<%= projectName %>/releases).

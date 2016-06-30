@@ -1,13 +1,19 @@
 # <%= projectName %> - Demo
 
-Install:
+* To install dependencies
 
-```
-npm install
+```sh
+$ npm install
 ```
 
-Run the project:
+* To provide a live demo
 
+```sh
+$ npm run start
 ```
-npm start
+
+* To clean npm_modules and typings folder
+
+```sh
+$ npm run clean
 ```

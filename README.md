@@ -24,38 +24,38 @@
 
 ## Introduction
 
-See the following [page](https://github.com/Alfresco/app-dev-framework/blob/master/Introduction.md) for an introduction to the Alfresco Application Development Framework. 
+See the following [page](https://github.com/Alfresco/app-dev-framework/blob/master/INTRODUCTION.md) for an introduction to the Alfresco Application Development Framework. 
 
 ## Prerequisites
 
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
-necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/Prerequisites.md).
+necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
 
 ## Installing Yeoman and the Component Generator
 
 First, install [Yeoman](http://yeoman.io):
 
-```bash
+```sh
 $ npm install -g yo
 ```
 
 Then the Alfresco Component Generator:
  
-```bash
+```sh
 $ npm install -g generator-ng2-alfresco-component
 ```
  
 ##  Generating a new component project
 
-First, move into the folder where you want create your project.
+First, move into the folder where you want create your component.
 
-```bash
+```sh
 yo ng2-alfresco-component
 ```
 
 <img src="assets/generator.png" alt='alfresco generator' >
 
-Which will generate the following project structure:
+Which will generate the following project structure and run `npm install` for you to fetch all dependencies:
 
 
     ├── .editorconfig
@@ -83,35 +83,61 @@ Which will generate the following project structure:
     ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts
 
-And run `npm install` for you to fetch all dependencies.
+## Generated component commands
 
-## Develop command list 
 
-* To test your project
+* To test your component
 
     ```sh
     $ npm run test
     ```
+    
+* To run the test in the browser
 
-* To build the distribution files before releasing a new version.
+    ```sh
+    $ npm run test-browser
+    ```    
+
+* To run the test coverage
+
+    ```sh
+    $ npm run coverage
+    ```
+        
+* To build the component
 
     ```sh
     $ npm run build
+    ```
+    
+* To build the component and keep watching the changes
+
+    ```sh
+    $ npm run build:w
     ```
 
 * To provide a live demo
 
     ```sh
-    $ npm run deploy
+    $ cd demo
+    $ npm run start
     ```
     
-## Contributing
+## Contributing to the generator
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
+
+>To contribute to the existing code base add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+
+* To test the generator 
+
+    ```sh
+    $ npm run test
+    ```
 
 ## History
 
@@ -128,6 +154,7 @@ All contributors [contributors](https://github.com/alfresco/generator-ng2-alfres
 ## License
 [MIT](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
  
+ * 2016-06-30  v0.0.24 Fix readme
  * 2016-06-30  v0.0.23 Angular RC3
  * 2016-06-17  v0.0.19 Angular RC2
  * 2016-06-03  v0.0.18 Angular Beta  
