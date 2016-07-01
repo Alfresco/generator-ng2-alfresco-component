@@ -127,9 +127,10 @@ Which will generate the following project structure and run `npm install` for yo
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+3. Make some changes 
+4. Commit your changes: `git commit -m 'Add some feature'`
+5. Push to the branch: `git push origin my-new-feature`
+6. Submit a pull request
 
 >To contribute to the existing code base add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
@@ -152,7 +153,7 @@ Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@R
 All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors).
 
 ## License
-[MIT](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
+[Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
  
  * 2016-06-30  v0.0.24 Fix readme
  * 2016-06-30  v0.0.23 Angular RC3
