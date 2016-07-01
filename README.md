@@ -13,7 +13,7 @@
     <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
   </a>
   <a alt='downloads stats' href='https://npmjs.org/package/generator-ng2-alfresco-component'>
-    <img src='https://img.shields.io/npm/dm/generator-ng2-alfresco-component.svg' alt='downloads stats' />
+    <img src='https://img.shields.io/npm/dt/generator-ng2-alfresco-component.svg' alt='downloads stats' />
   </a>
   <a href="https://nodei.co/npm/generator-ng2-alfresco-component/">
     <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-component.svg" alt='npm version' >
