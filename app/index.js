@@ -1,7 +1,6 @@
 'use strict';
 var alflogo = require('alfresco-logo');
 var yeoman = require('yeoman-generator');
-var askName = require('inquirer-npm-name');
 var githubUsername = require('github-username');
 var path = require('path');
 var mkdirp = require('mkdirp');
@@ -30,7 +29,7 @@ module.exports = yeoman.Base.extend({
       'Welcome to the awesome\nAngular 2 component\ngenerator for Alfresco!\n',
       {'left-pad': '     '}));
 
-    askName({
+    var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your component?',
       default: makeComponentName(path.basename(process.cwd())),
@@ -38,8 +37,10 @@ module.exports = yeoman.Base.extend({
       validate: function (str) {
         return str.length > 0;
       }
-    }, this, function (name) {
-      this.props.projectName = name;
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
@@ -79,7 +80,11 @@ module.exports = yeoman.Base.extend({
       name: 'keywords',
       message: 'Package keywords (comma to split)',
       filter: function (words) {
-        return words.split(/\s*,\s*/g);
+        if (words) {
+          return words.split(/\s*,\s*/g);
+        } else {
+          return [];
+        }
       }
     }];
 
