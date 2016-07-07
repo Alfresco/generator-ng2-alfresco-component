@@ -80,9 +80,9 @@ module.exports = yeoman.Base.extend({
       name: 'keywords',
       message: 'Package keywords (comma to split)',
       filter: function (words) {
-        if(words) {
+        if (words) {
           return words.split(/\s*,\s*/g);
-        }else{
+        } else {
           return [];
         }
       }
