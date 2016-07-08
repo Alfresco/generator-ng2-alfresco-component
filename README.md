@@ -6,8 +6,8 @@
   <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-component">
     <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-component.svg?branch=master' alt='Build Status'  />
   </a>
-  <a href='https://coveralls.io/github/Alfresco/generator-ng2-alfresco-component?branch=master'>
-    <img src='https://coveralls.io/repos/github/Alfresco/generator-ng2-alfresco-component/badge.svg?branch=master&t=Y7HGB8' alt='Coverage Status' />
+  <a href='https://codecov.io/gh/Alfresco/generator-ng2-alfresco-component'>
+    <img src='https://img.shields.io/codecov/c/github/codecov/generator-ng2-alfresco-component/master.svg?maxAge=2592000' alt='Coverage Status' />
   </a>
   <a href='https://github.com/Alfresco/generator-ng2-alfresco-component/blob/master/LICENSE'>
     <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
