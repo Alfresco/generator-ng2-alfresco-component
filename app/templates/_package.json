@@ -54,6 +54,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "angular-cli": "1.0.0-beta.9",
     "concurrently": "^2.1.0",
     "coveralls": "^2.11.9",
     "cpx": "^1.3.1",
