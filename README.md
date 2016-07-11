@@ -85,7 +85,6 @@ Which will generate the following project structure and run `npm install` for yo
 
 ## Generated component commands
 
-
 * To test your component
 
     ```sh
@@ -122,7 +121,40 @@ Which will generate the following project structure and run `npm install` for yo
     $ cd demo
     $ npm run start
     ```
-    
+## Support Angular Cli
+
+If you are familiar with angular-cli, you can use the following command also inside the generated project.
+
+```bash
+ng generate component my-new-component
+ng g component my-new-component # using the alias
+
+# components support relative path generation
+# if in the directory src/app/feature/ and you run
+ng g component new-cmp
+# your component will be generated in src/app/feature/new-cmp
+# but if you were to run
+ng g component ../newer-cmp
+# your component will be generated in src/app/newer-cmp
+```
+You can find all possible blueprints in the table below:
+
+Scaffold  | Usage
+---       | ---
+Component | `ng g component my-new-component`
+Directive | `ng g directive my-new-directive`
+Pipe      | `ng g pipe my-new-pipe`
+Service   | `ng g service my-new-service`
+Class     | `ng g class my-new-class`
+Interface | `ng g interface my-new-interface`
+Enum      | `ng g enum my-new-enum`
+
+If you don't have the angular-cli installed and you want to install it run the following command:
+
+```bash
+npm install -g angular-cli
+```
+
 ## Contributing to the generator
 
 1. Fork it!
@@ -155,6 +187,7 @@ All contributors [contributors](https://github.com/alfresco/generator-ng2-alfres
 ## License
 [Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
  
+ * 2016-07-11  v0.0.25 Add basic support for generate command of angular-cli
  * 2016-06-30  v0.0.24 Fix readme
  * 2016-06-30  v0.0.23 Angular RC3
  * 2016-06-17  v0.0.19 Angular RC2

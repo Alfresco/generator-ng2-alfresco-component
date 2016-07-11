@@ -168,6 +168,14 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('_angular-cli.json'),
+      this.destinationPath('angular-cli.json'),
+      {
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copyTpl(
       this.templatePath('_barrelFile.ts'),
       this.destinationPath(this.props.projectName + '.ts'),
       {
@@ -193,6 +201,8 @@ module.exports = yeoman.Base.extend({
         projectNameCamelCase: this.props.projectNameCamelCase
       }
     );
+
+    mkdirp('src/app');
 
     this.fs.copyTpl(
       this.templatePath('_package.json'),
