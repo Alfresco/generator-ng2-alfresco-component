@@ -188,7 +188,7 @@ All contributors [contributors](https://github.com/alfresco/generator-ng2-alfres
 ## License
 [Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
  
- * 2016-07-11  v0.0.25 Add basic support for generate command of angular-cli
+ * 2016-07-11..v0.0.26 Add basic support for generate command of angular-cli
  * 2016-06-30  v0.0.24 Fix readme
  * 2016-06-30  v0.0.23 Angular RC3
  * 2016-06-17  v0.0.19 Angular RC2
