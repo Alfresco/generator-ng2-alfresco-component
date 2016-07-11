@@ -121,6 +121,7 @@ Which will generate the following project structure and run `npm install` for yo
     $ cd demo
     $ npm run start
     ```
+    
 ## Support Angular Cli
 
 If you are familiar with angular-cli, you can use the following command also inside the generated project.
