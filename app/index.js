@@ -300,11 +300,6 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    this.fs.copy(
-      this.templatePath('demo/_browser-sync-config.js'),
-      this.destinationPath('demo/browser-sync-config.js')
-    );
-
     this.fs.copyTpl(
       this.templatePath('demo/_README.md'),
       this.destinationPath('demo/README.md'),

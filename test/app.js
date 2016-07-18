@@ -70,7 +70,6 @@ describe('Alfresco component generator', function () {
         'demo/index.html',
         'demo/src/main.ts',
         'demo/systemjs.config.js',
-        'demo/browser-sync-config.js',
         'src/component-fake.component.ts',
         'src/component-fake.component.spec.ts'
       ];
