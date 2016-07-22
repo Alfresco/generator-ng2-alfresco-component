@@ -82,39 +82,18 @@ Which will generate the following project structure and run `npm install` for yo
     ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts
 
-## Generated component commands
+## npm scripts
 
-* To test your component
+| Command | Description |
+| --- | --- |
+| npm run build | compiles component |
+| npm run build:w | compiles component, watches for changes and recompiles if needed |
+| npm run test | compiles, runs and watches the karma unit tests (console version) |
+| npm run test-browser | compiles, runs and watches the karma unit tests (browser version) |
+| num run coverage | runs unit tests, generates and opens code coverage report in browser |
 
-```sh
-npm run test
-```
 
-* To run the test in the browser
-
-```sh
-npm run test-browser
-```
-
-* To run the test coverage
-
-```sh
-npm run coverage
-```
-
-* To build the component
-
-```sh
-npm run build
-```
-
-* To build the component and keep watching the changes
-
-```sh
-npm run build:w
-```
-
-* To provide a live demo
+## Running demo
 
 ```sh
 cd demo
