@@ -14,7 +14,15 @@ function validateEmail(email) {
 module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.props = {};
+    this.props = {
+      licenseHeader: '',
+      licenseChecker: false
+    };
+
+    if (this.options.alfresco) {
+      this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
+      this.props.licenseChecker = true;
+    }
   },
 
   prompting: function () {
@@ -163,36 +171,25 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_angular-cli.json'),
       this.destinationPath('angular-cli.json'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_index.ts'),
       this.destinationPath('index.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_sourceFile.ts'),
       this.destinationPath('src/' + this.props.projectName + '.component.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_testFile.spec.ts'),
       this.destinationPath('src/' + this.props.projectName + '.component.spec.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.props
     );
 
     mkdirp('src/app');
@@ -200,31 +197,30 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        authorName: this.props.authorName,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     var currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
     this.props.keywords.push('alfresco-component');
 
-    var pkg = _.extend({
-      keywords: this.props.keywords
-    }, currentPkg);
+    var pkg = _.merge(
+      currentPkg,
+      { keywords: this.props.keywords }
+    );
+
+    if (this.props.licenseChecker) {
+      pkg = _.merge(
+          currentPkg,
+          this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
+      );
+    }
 
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
     this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     this.composeWith('license', {
@@ -244,18 +240,13 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('demo/_index.html'),
       this.destinationPath('demo/index.html'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('demo/_main.ts'),
       this.destinationPath('demo/src/main.ts'),
-      {
-        projectNameCamelCase: this.props.projectNameCamelCase,
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copy(
@@ -286,27 +277,19 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('demo/_package.json'),
       this.destinationPath('demo/package.json'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        authorName: this.props.authorName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('demo/_README.md'),
       this.destinationPath('demo/README.md'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('demo/_systemjs.config.js'),
       this.destinationPath('demo/systemjs.config.js'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
   },
 
