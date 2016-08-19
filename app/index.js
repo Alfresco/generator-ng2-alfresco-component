@@ -6,11 +6,6 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
-function makeComponentName(name) {
-  name = _.kebabCase(name);
-  return name;
-}
-
 function validateEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -32,8 +27,6 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your component?',
-      default: makeComponentName(path.basename(process.cwd())),
-      filter: makeComponentName,
       validate: function (str) {
         return str.length > 0;
       }
