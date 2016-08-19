@@ -53,10 +53,9 @@ First, move into the folder where you want create your component.
 yo ng2-alfresco-component
 ```
 
-<img src="assets/generator.png" alt='alfresco generator' >
+![alfresco generator](assets/generator.png)
 
-Which will generate the following project structure and run `npm install` for you to fetch all dependencies:
-
+Which will generate the following project structure:
 
     ├── .editorconfig
     ├── .gitignore
@@ -81,6 +80,19 @@ Which will generate the following project structure and run `npm install` for yo
     ├── demo/app/main.ts
     ├── src/my-element-tests.component.ts
     └── src/my-element.component.ts
+
+You will need to run the following scripts in the generated folder:
+
+```sh
+npm install
+npm run build
+```
+
+Alternatively you can use generator with `install` switch to trigger automatic installation of dependencies via `npm install` script:
+
+```sh
+yo ng2-alfresco-component --install
+```
 
 ## npm scripts
 

@@ -176,8 +176,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_barrelFile.ts'),
-      this.destinationPath(this.props.projectName + '.ts'),
+      this.templatePath('_index.ts'),
+      this.destinationPath('index.ts'),
       {
         projectName: this.props.projectName,
         projectNameCamelCase: this.props.projectNameCamelCase
@@ -249,7 +249,7 @@ module.exports = yeoman.Base.extend({
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
     this.fs.copyTpl(
-      this.templatePath('demo/_demoIndex.html'),
+      this.templatePath('demo/_index.html'),
       this.destinationPath('demo/index.html'),
       {
         projectName: this.props.projectName
@@ -257,7 +257,7 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('demo/_demoMain.ts'),
+      this.templatePath('demo/_main.ts'),
       this.destinationPath('demo/src/main.ts'),
       {
         projectNameCamelCase: this.props.projectNameCamelCase,
@@ -318,7 +318,7 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    if (!this.options['skip-install']) {
+    if (this.options.install) {
       this.npmInstall();
     }
   }
