@@ -56,7 +56,7 @@ describe('Alfresco component generator', function () {
         'tsconfig.json',
         'tslint.json',
         'angular-cli.json',
-        'component-fake.ts',
+        'index.ts',
         'karma.conf.js',
         'karma-test-shim.js',
         'assets/license_header.txt',
@@ -103,7 +103,7 @@ describe('Alfresco component generator', function () {
     });
 
     it('fills the barrel file with project data', function () {
-      assert.fileContent('component-fake.ts', './src/component-fake.component');
+      assert.fileContent('index.ts', './src/component-fake.component');
     });
 
     it('fills the demo package.json with project data', function () {
@@ -122,11 +122,11 @@ describe('Alfresco component generator', function () {
     });
 
     it('fills the systemjs.config.js file with project data', function () {
-      assert.fileContent('demo/systemjs.config.js', '\'component-fake\': \'node_modules/component-fake\'');
+      assert.fileContent('demo/systemjs.config.js', '\'component-fake\': \'node_modules/component-fake/dist\'');
     });
 
     it('fills the main file with project data', function () {
-      assert.fileContent('demo/src/main.ts', 'component-fake/dist/component-fake');
+      assert.fileContent('demo/src/main.ts', 'component-fake');
     });
   });
 });

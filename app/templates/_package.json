@@ -23,6 +23,8 @@
     "prepublish": "npm run build",
     "travis": "echo 'placeholder'"
   },
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/<%= githubAccount %>/<%= projectName %>.git"

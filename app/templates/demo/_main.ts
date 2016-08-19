@@ -16,7 +16,7 @@
  */
 import { Component } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { <%= projectNameCamelCase %>Component } from '<%= projectName %>/dist/<%= projectName %>';
+import { <%= projectNameCamelCase %>Component } from '<%= projectName %>';
 
 @Component({
   selector: 'my-app',
