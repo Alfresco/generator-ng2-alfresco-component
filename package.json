@@ -39,7 +39,6 @@
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.0.0",
     "gulp-plumber": "^1.0.0",
-    "gulp-coveralls": "^0.1.0",
     "mocha": "^2.2.3",
     "mockery": "^1.4.0",
     "rimraf": "2.5.2",
@@ -55,8 +54,7 @@
   "repository": "Alfresco/generator-ng2-alfresco-component",
   "scripts": {
     "clean": "rimraf node_modules typings",
-    "test": "gulp",
-    "coveralls": "gulp coveralls"
+    "test": "gulp"
   },
   "license": "MIT"
 }
