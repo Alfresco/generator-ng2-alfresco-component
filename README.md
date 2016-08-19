@@ -164,6 +164,17 @@ npm install -g angular-cli
 npm run test
 ```
 
+## Advanced options
+
+```sh
+yo ng2-alfresco-component --alfresco
+```
+
+Typically used for internal purposes and adds the following extras to the generated project structure:
+
+- adds Alfresco license headers to all code files
+- configures component `package.json` with additional license checker configurations (devDependencies, scripts, etc.)
+
 ## History
 
 For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-component/releases).
