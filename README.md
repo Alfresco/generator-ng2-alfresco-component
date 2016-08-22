@@ -1,4 +1,4 @@
-<h1 align="center">Yeoman Generator Angular 2 Alfresco Component</h1>
+<h1 align="center">Yeoman Generator for Alfresco Angular 2 Component</h1>
 <p align="center">
   <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
 </p>
@@ -19,8 +19,6 @@
     <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-component.svg" alt='npm version' >
   </a>
 </p>
-
->Yeoman generator generating a Angular2 Alfresco Component scaffold
 
 ## Introduction
 
@@ -55,31 +53,37 @@ yo ng2-alfresco-component
 
 ![alfresco generator](assets/generator.png)
 
-Which will generate the following project structure:
+Which will generate project structure similar to the following:
 
+    ├── assets/
+    │   └── license_header.txt
+    ├── demo/
+    │   ├── src/
+    │   │   └── main.ts
+    │   ├── .editorconfig
+    │   ├── .gitignore
+    │   ├── index.html
+    │   ├── package.json
+    │   ├── README.md
+    │   ├── systemjs.config.js
+    │   ├── tsconfig.json
+    │   ├── tslint.json
+    │   └── typings.json
+    ├── src/
+    │   ├── my-element.component.spec.ts
+    │   └── my-element.component.ts
     ├── .editorconfig
     ├── .gitignore
+    ├── .travis.yml
+    ├── index.ts
+    ├── karma-test-shim.js
+    ├── karma.conf.js
+    ├── LICENSE
+    ├── package.json
+    ├── README.md
     ├── tsconfig.json
     ├── tslint.json
-    ├── package.json
-    ├── typings.json
-    ├── karma.conf.js
-    ├── karma-test-shim.js
-    ├── LICENSE
-    ├── README.md
-    ├── my-element.ts
-    ├── assets/license_header.txt
-    ├── demo/.gitignore
-    ├── demo/.editorconfig
-    ├── demo/package.json
-    ├── demo/tsconfig.json
-    ├── demo/tslint.json
-    ├── demo/typings.json
-    ├── demo/README.html
-    ├── demo/index.html
-    ├── demo/app/main.ts
-    ├── src/my-element-tests.component.ts
-    └── src/my-element.component.ts
+    └── typings.json
 
 You will need to run the following scripts in the generated folder:
 
@@ -104,47 +108,16 @@ yo ng2-alfresco-component --install
 | npm run test-browser | compiles, runs and watches the karma unit tests (browser version) |
 | num run coverage | runs unit tests, generates and opens code coverage report in browser |
 
-
 ## Running demo
+
+If you have answered `Yes` for the generator question `Do you want a demo project to be generated?` you will get an additional demo project in the `demo` folder.
+
+You will need installing npm dependencies for the generated demo project separately:
 
 ```sh
 cd demo
 npm install
 npm run start
-```
-
-## Support Angular Cli
-
-If you are familiar with angular-cli, you can use the following command also inside the generated project.
-
-```bash
-ng generate component my-new-component
-ng g component my-new-component # using the alias
-
-# components support relative path generation
-# if in the directory src/app/feature/ and you run
-ng g component new-cmp
-# your component will be generated in src/app/feature/new-cmp
-# but if you were to run
-ng g component ../newer-cmp
-# your component will be generated in src/app/newer-cmp
-```
-You can find all possible blueprints in the table below:
-
-Scaffold  | Usage
----       | ---
-Component | `ng g component my-new-component`
-Directive | `ng g directive my-new-directive`
-Pipe      | `ng g pipe my-new-pipe`
-Service   | `ng g service my-new-service`
-Class     | `ng g class my-new-class`
-Interface | `ng g interface my-new-interface`
-Enum      | `ng g enum my-new-enum`
-
-If you don't have the angular-cli installed and you want to install it run the following command:
-
-```bash
-npm install -g angular-cli
 ```
 
 ## Contributing to the generator
@@ -158,7 +131,7 @@ npm install -g angular-cli
 
 >To contribute to the existing code base add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
-* To test the generator
+To test the generator run:
 
 ```sh
 npm run test
@@ -181,17 +154,12 @@ For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2
 
 ## Contributors
 
-Contributor | GitHub profile | Twitter profile |
---- | --- | ---
-Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
+| Contributor | GitHub profile | Twitter profile |
+| --- | --- | --- |
+| Eugenio Romano | [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio) |
+| Denys Vuika | [Denys Vuika](https://github.com/denisvuyka) | [@denisvuyka](https://twitter.com/denisvuyka) |
 
-All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors).
+[See all contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors)
 
 ## License
 [Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-component/blob/master/LICENSE)
-
- * 2016-07-11  v0.0.26 Add basic support for generate command of angular-cli
- * 2016-06-30  v0.0.24 Fix readme
- * 2016-06-30  v0.0.23 Angular RC3
- * 2016-06-17  v0.0.19 Angular RC2
- * 2016-06-03  v0.0.18 Angular Beta  

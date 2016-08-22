@@ -55,7 +55,6 @@ describe('Alfresco component generator', function () {
         'typings.json',
         'tsconfig.json',
         'tslint.json',
-        'angular-cli.json',
         'index.ts',
         'karma.conf.js',
         'karma-test-shim.js',
