@@ -102,6 +102,13 @@ module.exports = yeoman.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.props = _.extend(this.props, props);
+
+      var projectAuthor = this.props.authorName;
+      if (this.props.authorEmail) {
+        projectAuthor += ' <' + this.props.authorEmail + '>';
+      }
+      this.props.projectAuthor = projectAuthor;
+
       done();
     }.bind(this));
   },

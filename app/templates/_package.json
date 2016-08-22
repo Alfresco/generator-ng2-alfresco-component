@@ -2,7 +2,7 @@
   "name": "<%= projectName %>",
   "description": "<%= description %>",
   "version": "0.1.0",
-  "author": "<%= authorName %>",
+  "author": "<%- projectAuthor %>",
   "scripts": {
     "postinstall": "typings install",
     "clean": "rimraf dist node_modules typings",
