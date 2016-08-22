@@ -36,7 +36,7 @@ describe('Alfresco component generator', function () {
           keywords: ['generator-keyword', 'component-keyword', 'angular2-keyword'],
           license: 'MIT'
         })
-        .withOptions({'skip-install': true})
+        .withOptions({ alfresco: true })
         .on('end', done);
     });
 

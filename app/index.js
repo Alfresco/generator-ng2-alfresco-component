@@ -60,34 +60,45 @@ module.exports = yeoman.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    var prompts = [{
-      name: 'description',
-      message: 'How would you describe the element?'
-    }, {
-      name: 'authorName',
-      message: 'Author\'s Name',
-      default: this.user.git.name(),
-      store: true
-    }, {
-      name: 'authorEmail',
-      message: 'Author\'s Email',
-      default: this.user.git.email(),
-      store: true
-    }, {
-      name: 'authorUrl',
-      message: 'Author\'s Homepage',
-      store: true
-    }, {
-      name: 'keywords',
-      message: 'Package keywords (comma to split)',
-      filter: function (words) {
-        if (words) {
-          return words.split(/\s*,\s*/g);
-        } else {
-          return [];
+    var prompts = [
+      {
+        name: 'description',
+        message: 'How would you describe the element?'
+      },
+      {
+        name: 'authorName',
+        message: 'Author\'s Name',
+        default: this.user.git.name(),
+        store: true
+      },
+      {
+        name: 'authorEmail',
+        message: 'Author\'s Email',
+        default: this.user.git.email(),
+        store: true
+      },
+      {
+        name: 'authorUrl',
+        message: 'Author\'s Homepage',
+        store: true
+      },
+      {
+        name: 'keywords',
+        message: 'Package keywords (comma to split)',
+        filter: function (words) {
+          if (words) {
+            return words.split(/\s*,\s*/g);
+          } else {
+            return [];
+          }
         }
+      },
+      {
+        name: 'generateDemo',
+        message: 'Do you want a demo project to be generated?',
+        type: 'confirm'
       }
-    }];
+    ];
 
     this.prompt(prompts, function (props) {
       this.props = _.extend(this.props, props);
@@ -123,10 +134,12 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
-    this.fs.copyTpl(
-      this.templatePath('_license_header.txt'),
-      this.destinationPath('assets/license_header.txt')
-    );
+    if (this.props.licenseChecker) {
+      this.fs.copyTpl(
+        this.templatePath('_license_header.txt'),
+        this.destinationPath('assets/license_header.txt')
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
@@ -235,6 +248,10 @@ module.exports = yeoman.Base.extend({
   },
 
   writeDemo: function () {
+    if (!this.props.generateDemo) {
+      return;
+    }
+
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
     this.fs.copyTpl(
