@@ -8,7 +8,7 @@
     "clean": "rimraf dist node_modules typings",
     "typings": "typings install",
     "postinstall": "npm run typings && npm run build",
-    "start": "concurrently \"npm run build:w\" \"npm run server\" ",
+    "start": "npm run tslint && rimraf dist && tsc && concurrently \"tsc -w\" \"npm run server\" ",
     "server": "wsrv -o -l -s",
     "build": "npm run tslint && rimraf dist && tsc",
     "build:w": "npm run tslint && rimraf dist && tsc -w",
