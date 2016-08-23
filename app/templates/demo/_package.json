@@ -2,7 +2,7 @@
   "name": "<%= projectName %>-demo",
   "description": "<%= description %> - Demo",
   "version": "0.1.0",
-  "author": "<%= authorName %>",
+  "author": "<%- projectAuthor %>",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist node_modules typings",
@@ -36,9 +36,13 @@
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "^0.6.12",
-    "<%= projectName %>": "file:../",
     "material-design-icons": "^2.2.3",
-    "material-design-lite": "^1.1.3"
+    "material-design-lite": "^1.1.3",
+    "ng2-translate": "2.2.2",
+
+    "<%= projectName %>": "file:../",
+    "ng2-alfresco-core": "^0.2.0",
+    "alfresco-js-api": "^0.2.0"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
