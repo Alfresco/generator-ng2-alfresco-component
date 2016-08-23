@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-alfresco-component",
-  "version": "0.0.26",
+  "version": "0.2.0",
   "description": "Yeoman generator generating angular 2 Alfresco component",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-component",
   "author": {
@@ -51,7 +51,10 @@
       "mocha": true
     }
   },
-  "repository": "Alfresco/generator-ng2-alfresco-component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alfresco/generator-ng2-alfresco-component.git"
+  },
   "scripts": {
     "clean": "rimraf node_modules typings",
     "test": "gulp"

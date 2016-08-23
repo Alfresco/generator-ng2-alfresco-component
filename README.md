@@ -171,6 +171,18 @@ To test the generator run:
 npm run test
 ```
 
+### Debugging generator
+
+```sh
+# OS X / Linux
+DEBUG=yeoman:generator yo ng2-alfresco-component
+
+# Windows
+set DEBUG=yeoman:generator yo ng2-alfresco-component
+```
+
+More on [debugging generators](http://yeoman.io/authoring/debugging.html).
+
 ## Advanced options
 
 ```sh

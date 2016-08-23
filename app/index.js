@@ -13,7 +13,7 @@ function validateEmail(email) {
 
 module.exports = yeoman.Base.extend({
 
-  initializing: function () {
+  initializing: function() {
     this.props = {
       licenseHeader: '',
       licenseChecker: false
@@ -25,7 +25,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  prompting: function () {
+  prompting: function() {
     var done = this.async();
 
     this.log(alflogo(
@@ -35,18 +35,18 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your component?',
-      validate: function (str) {
+      validate: function(str) {
         return str.length > 0;
       }
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  default: function () {
+  default: function() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.projectName + '\n' +
@@ -57,7 +57,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askFor: function () {
+  askFor: function() {
     var done = this.async();
 
     var prompts = [
@@ -85,7 +85,7 @@ module.exports = yeoman.Base.extend({
       {
         name: 'keywords',
         message: 'Package keywords (comma to split)',
-        filter: function (words) {
+        filter: function(words) {
           if (words) {
             return words.split(/\s*,\s*/g);
           } else {
@@ -100,7 +100,7 @@ module.exports = yeoman.Base.extend({
       }
     ];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
 
       var projectAuthor = this.props.authorName;
@@ -113,11 +113,11 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
-  askForGithubAccount: function () {
+  askForGithubAccount: function() {
     var done = this.async();
 
     if (validateEmail(this.props.authorEmail)) {
-      githubUsername(this.props.authorEmail, function (err, username) {
+      githubUsername(this.props.authorEmail, function(err, username) {
         if (err) {
           username = username || '';
         }
@@ -128,7 +128,7 @@ module.exports = yeoman.Base.extend({
           default: username
         }];
 
-        this.prompt(prompts, function (props) {
+        this.prompt(prompts, function(props) {
           this.props = _.extend(this.props, props);
           done();
         }.bind(this));
@@ -138,7 +138,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  writing: function () {
+  writing: function() {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
     if (this.props.licenseChecker) {
@@ -254,7 +254,7 @@ module.exports = yeoman.Base.extend({
     });
   },
 
-  writeDemo: function () {
+  writeDemo: function() {
     if (!this.props.generateDemo) {
       return;
     }
@@ -317,7 +317,7 @@ module.exports = yeoman.Base.extend({
     );
   },
 
-  install: function () {
+  install: function() {
     if (this.options.install) {
       this.npmInstall();
     }
