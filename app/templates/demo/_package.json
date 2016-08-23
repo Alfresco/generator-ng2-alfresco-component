@@ -3,7 +3,8 @@
   "description": "<%= description %> - Demo",
   "version": "0.1.0",
   "author": "<%- projectAuthor %>",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist node_modules typings",
     "typings": "typings install",
