@@ -6,11 +6,6 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
-function makeComponentName(name) {
-  name = _.kebabCase(name);
-  return name;
-}
-
 function validateEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -18,11 +13,19 @@ function validateEmail(email) {
 
 module.exports = yeoman.Base.extend({
 
-  initializing: function () {
-    this.props = {};
+  initializing: function() {
+    this.props = {
+      licenseHeader: '',
+      licenseChecker: false
+    };
+
+    if (this.options.alfresco) {
+      this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
+      this.props.licenseChecker = true;
+    }
   },
 
-  prompting: function () {
+  prompting: function() {
     var done = this.async();
 
     this.log(alflogo(
@@ -32,20 +35,18 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your component?',
-      default: makeComponentName(path.basename(process.cwd())),
-      filter: makeComponentName,
-      validate: function (str) {
+      validate: function(str) {
         return str.length > 0;
       }
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  default: function () {
+  default: function() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.projectName + '\n' +
@@ -56,49 +57,67 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askFor: function () {
+  askFor: function() {
     var done = this.async();
 
-    var prompts = [{
-      name: 'description',
-      message: 'How would you describe the element?'
-    }, {
-      name: 'authorName',
-      message: 'Author\'s Name',
-      default: this.user.git.name(),
-      store: true
-    }, {
-      name: 'authorEmail',
-      message: 'Author\'s Email',
-      default: this.user.git.email(),
-      store: true
-    }, {
-      name: 'authorUrl',
-      message: 'Author\'s Homepage',
-      store: true
-    }, {
-      name: 'keywords',
-      message: 'Package keywords (comma to split)',
-      filter: function (words) {
-        if (words) {
-          return words.split(/\s*,\s*/g);
-        } else {
-          return [];
+    var prompts = [
+      {
+        name: 'description',
+        message: 'How would you describe the element?'
+      },
+      {
+        name: 'authorName',
+        message: 'Author\'s Name',
+        default: this.user.git.name(),
+        store: true
+      },
+      {
+        name: 'authorEmail',
+        message: 'Author\'s Email',
+        default: this.user.git.email(),
+        store: true
+      },
+      {
+        name: 'authorUrl',
+        message: 'Author\'s Homepage',
+        store: true
+      },
+      {
+        name: 'keywords',
+        message: 'Package keywords (comma to split)',
+        filter: function(words) {
+          if (words) {
+            return words.split(/\s*,\s*/g);
+          } else {
+            return [];
+          }
         }
+      },
+      {
+        name: 'generateDemo',
+        message: 'Do you want a demo project to be generated?',
+        type: 'confirm'
       }
-    }];
+    ];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
+
+      var projectAuthor = this.props.authorName;
+      if (this.props.authorEmail) {
+        projectAuthor += ' <' + this.props.authorEmail + '>';
+      }
+      this.props.projectAuthor = projectAuthor;
+
       done();
     }.bind(this));
   },
 
-  askForGithubAccount: function () {
+  askForGithubAccount: function() {
     var done = this.async();
 
     if (validateEmail(this.props.authorEmail)) {
-      githubUsername(this.props.authorEmail, function (err, username) {
+      githubUsername(this.props.authorEmail, function(err, username) {
         if (err) {
           username = username || '';
         }
@@ -109,7 +128,7 @@ module.exports = yeoman.Base.extend({
           default: username
         }];
 
-        this.prompt(prompts, function (props) {
+        this.prompt(prompts, function(props) {
           this.props = _.extend(this.props, props);
           done();
         }.bind(this));
@@ -119,13 +138,15 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  writing: function () {
+  writing: function() {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
-    this.fs.copyTpl(
-      this.templatePath('_license_header.txt'),
-      this.destinationPath('assets/license_header.txt')
-    );
+    if (this.props.licenseChecker) {
+      this.fs.copyTpl(
+        this.templatePath('_license_header.txt'),
+        this.destinationPath('assets/license_header.txt')
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
@@ -170,36 +191,25 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_angular-cli.json'),
       this.destinationPath('angular-cli.json'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
-      this.templatePath('_barrelFile.ts'),
-      this.destinationPath(this.props.projectName + '.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.templatePath('_index.ts'),
+      this.destinationPath('index.ts'),
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_sourceFile.ts'),
       this.destinationPath('src/' + this.props.projectName + '.component.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_testFile.spec.ts'),
       this.destinationPath('src/' + this.props.projectName + '.component.spec.ts'),
-      {
-        projectName: this.props.projectName,
-        projectNameCamelCase: this.props.projectNameCamelCase
-      }
+      this.props
     );
 
     mkdirp('src/app');
@@ -207,31 +217,30 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        authorName: this.props.authorName,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     var currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
     this.props.keywords.push('alfresco-component');
 
-    var pkg = _.extend({
-      keywords: this.props.keywords
-    }, currentPkg);
+    var pkg = _.merge(
+      currentPkg,
+      { keywords: this.props.keywords }
+    );
+
+    if (this.props.licenseChecker) {
+      pkg = _.merge(
+          currentPkg,
+          this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
+      );
+    }
 
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
     this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     this.composeWith('license', {
@@ -245,24 +254,23 @@ module.exports = yeoman.Base.extend({
     });
   },
 
-  writeDemo: function () {
+  writeDemo: function() {
+    if (!this.props.generateDemo) {
+      return;
+    }
+
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
     this.fs.copyTpl(
-      this.templatePath('demo/_demoIndex.html'),
+      this.templatePath('demo/_index.html'),
       this.destinationPath('demo/index.html'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
-      this.templatePath('demo/_demoMain.ts'),
+      this.templatePath('demo/_main.ts'),
       this.destinationPath('demo/src/main.ts'),
-      {
-        projectNameCamelCase: this.props.projectNameCamelCase,
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copy(
@@ -293,37 +301,24 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('demo/_package.json'),
       this.destinationPath('demo/package.json'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        authorName: this.props.authorName
-      }
-    );
-
-    this.fs.copy(
-      this.templatePath('demo/_browser-sync-config.js'),
-      this.destinationPath('demo/browser-sync-config.js')
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('demo/_README.md'),
       this.destinationPath('demo/README.md'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('demo/_systemjs.config.js'),
       this.destinationPath('demo/systemjs.config.js'),
-      {
-        projectName: this.props.projectName
-      }
+      this.props
     );
   },
 
-  install: function () {
-    if (!this.options['skip-install']) {
+  install: function() {
+    if (this.options.install) {
       this.npmInstall();
     }
   }

@@ -14,20 +14,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { <%= projectNameCamelCase %>Component } from '<%= projectName %>/dist/<%= projectName %>';
-
-@Component({
-  selector: 'my-app',
-  template: `<<%= projectName %>></<%= projectName %>>`,
-  directives: [<%= projectNameCamelCase %>Component]
-})
-class MyDemoApp {
-  constructor() {
-    console.log('constructor');
-  }
-}
-bootstrap(MyDemoApp, [
-  <%= projectNameCamelCase %>Component
-]);
