@@ -42,8 +42,8 @@
     "ng2-translate": "2.2.2",
 
     "<%= projectName %>": "file:../",
-    "ng2-alfresco-core": "^0.2.0",
-    "alfresco-js-api": "^0.2.0"
+    "ng2-alfresco-core": "^0.3.0",
+    "alfresco-js-api": "^0.3.0"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
