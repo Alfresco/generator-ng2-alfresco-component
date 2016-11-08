@@ -183,15 +183,14 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('.gitignore')
     );
 
-    this.fs.copyTpl(
-      this.templatePath('_.editorconfig'),
-      this.destinationPath('.editorconfig')
+    this.fs.copy(
+      this.templatePath('_.npmignore'),
+      this.destinationPath('.npmignore')
     );
 
     this.fs.copyTpl(
-      this.templatePath('_angular-cli.json'),
-      this.destinationPath('angular-cli.json'),
-      this.props
+      this.templatePath('_.editorconfig'),
+      this.destinationPath('.editorconfig')
     );
 
     this.fs.copyTpl(

@@ -33,6 +33,7 @@ Method        | Parameters   | Returns     | Description
 | npm run test | Run unit tests in the console |
 | npm run test-browser | Run unit tests in the browser
 | npm run coverage | Run unit tests and display code coverage report |
+| npm run link | Link locally ADF libraries by means of `npm link`  |
 
 ## History
 
