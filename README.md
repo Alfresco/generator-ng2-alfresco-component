@@ -98,6 +98,8 @@ Alternatively you can use generator with `install` switch to trigger automatic i
 yo ng2-alfresco-component --install
 ```
 
+_Optinally you can use `npm run link` script to locally link ADF libraries if necessary._
+
 ## npm scripts
 
 | Command | Description |
@@ -107,6 +109,7 @@ yo ng2-alfresco-component --install
 | npm run test | compiles, runs and watches the karma unit tests (console version) |
 | npm run test-browser | compiles, runs and watches the karma unit tests (browser version) |
 | num run coverage | runs unit tests, generates and opens code coverage report in browser |
+| npm run link | Link ADF components locally by means of `npm link` |
 
 ## Running demo
 
@@ -119,6 +122,8 @@ cd demo
 npm install
 npm run start
 ```
+
+_Optinally you can use `npm run link` script to locally link ADF libraries if necessary._
 
 ## Contributing to the generator
 

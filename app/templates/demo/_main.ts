@@ -1,18 +1,30 @@
 <%- licenseHeader %>
-import { Component } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { <%= projectNameCamelCase %>Component } from '<%= projectName %>';
+import { NgModule, Component } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { CoreModule } from 'ng2-alfresco-core';
+
+import { <%= projectNameCamelCase %>Module } from '<%= projectName %>';
 
 @Component({
   selector: 'my-app',
-  template: `<<%= projectName %>></<%= projectName %>>`,
-  directives: [<%= projectNameCamelCase %>Component]
+  template: `<<%= projectName %>></<%= projectName %>>`
 })
-class MyDemoApp {
+class DemoApp {
   constructor() {
     console.log('constructor');
   }
 }
-bootstrap(MyDemoApp, [
-  <%= projectNameCamelCase %>Component
-]);
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        CoreModule.forRoot(),
+        <%= projectNameCamelCase %>Module
+    ],
+    declarations: [ DemoApp ],
+    bootstrap:    [ DemoApp ]
+})
+export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
