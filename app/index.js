@@ -169,11 +169,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
-      this.templatePath('_typings.json'),
-      this.destinationPath('typings.json')
-    );
-
-    this.fs.copy(
       this.templatePath('_.travis.yml'),
       this.destinationPath('.travis.yml')
     );
@@ -290,11 +285,6 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('demo/_tslint.json'),
       this.destinationPath('demo/tslint.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('demo/_typings.json'),
-      this.destinationPath('demo/typings.json')
     );
 
     this.fs.copyTpl(
