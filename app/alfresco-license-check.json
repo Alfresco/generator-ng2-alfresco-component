@@ -3,14 +3,14 @@
     "license-check": "license-check"
   },
   "devDependencies": {
-    "license-check": "^1.0.4"
+    "license-check": "1.1.5"
   },
   "license-check-config": {
     "src": [
       "./dist/**/*.js"
     ],
     "path": "assets/license_header.txt",
-    "blocking": false,
+    "blocking": true,
     "logInfo": false,
     "logError": true
   }
