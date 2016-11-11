@@ -98,6 +98,8 @@ Alternatively you can use generator with `install` switch to trigger automatic i
 yo ng2-alfresco-component --install
 ```
 
+_Optinally you can use `npm run link` script to locally link ADF libraries if necessary._
+
 ## npm scripts
 
 | Command | Description |
@@ -107,6 +109,7 @@ yo ng2-alfresco-component --install
 | npm run test | compiles, runs and watches the karma unit tests (console version) |
 | npm run test-browser | compiles, runs and watches the karma unit tests (browser version) |
 | num run coverage | runs unit tests, generates and opens code coverage report in browser |
+| npm run link | Link ADF components locally by means of `npm link` |
 
 ## Running demo
 
@@ -120,39 +123,7 @@ npm install
 npm run start
 ```
 
-## Angular Cli Support
-
-If you are familiar with angular-cli, you can use the following command also inside the generated project.
-
-```bash
-ng generate component my-new-component
-ng g component my-new-component # using the alias
-
-# components support relative path generation
-# if in the directory src/app/feature/ and you run
-ng g component new-cmp
-# your component will be generated in src/app/feature/new-cmp
-# but if you were to run
-ng g component ../newer-cmp
-# your component will be generated in src/app/newer-cmp
-```
-You can find all possible blueprints in the table below:
-
-Scaffold  | Usage
----       | ---
-Component | `ng g component my-new-component`
-Directive | `ng g directive my-new-directive`
-Pipe      | `ng g pipe my-new-pipe`
-Service   | `ng g service my-new-service`
-Class     | `ng g class my-new-class`
-Interface | `ng g interface my-new-interface`
-Enum      | `ng g enum my-new-enum`
-
-If you don't have the angular-cli installed and you want to install it run the following command:
-
-```bash
-npm install -g angular-cli
-```
+_Optinally you can use `npm run link` script to locally link ADF libraries if necessary._
 
 ## Contributing to the generator
 
@@ -204,6 +175,7 @@ For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2
 | --- | --- | --- |
 | Eugenio Romano | [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio) |
 | Denys Vuika | [Denys Vuika](https://github.com/denisvuyka) | [@denisvuyka](https://twitter.com/denisvuyka) |
+| Mario Romano | [Mario Romano](https://github.com/magemello) | [@MagemelloMario](https://twitter.com/MagemelloMario) |
 
 [See all contributors](https://github.com/alfresco/generator-ng2-alfresco-component/graphs/contributors)
 

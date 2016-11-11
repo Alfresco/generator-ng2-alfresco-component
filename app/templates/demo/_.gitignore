@@ -1,5 +1,11 @@
 typings/
 node_modules/
+bower_components/
+app/**/*.js
+app/**/*.js.map
 .idea
 dist/
-!systemjs.config.js
+
+# docker files
+docker-compose.yml
+Dockerfile
