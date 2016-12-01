@@ -174,6 +174,7 @@ npm start
 | npm run test | Run unit tests in the console |
 | npm run test-browser | Run unit tests in the browser
 | npm run coverage | Run unit tests and display code coverage report |
+  <% if (authorEmail) { %>
 
 ## History
 
@@ -182,3 +183,4 @@ For detailed changelog, check [Releases](https://github.com/<%= githubAccount %>
 ## Contributors
 
 [Contributors](https://github.com/<%= githubAccount %>/<%= projectName %>/graphs/contributors)
+  <% } %>
