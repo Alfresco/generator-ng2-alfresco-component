@@ -68,7 +68,8 @@ describe('Alfresco component generator', function() {
         'demo/src/main.ts',
         'demo/systemjs.config.js',
         'src/component-fake.component.ts',
-        'src/component-fake.component.spec.ts'
+        'src/component-fake.component.spec.ts',
+        'gulpfile.ts'
       ];
 
       assert.file(expected);
@@ -119,7 +120,7 @@ describe('Alfresco component generator', function() {
     });
 
     it('fills the systemjs.config.js file with project data', function() {
-      assert.fileContent('demo/systemjs.config.js', '\'component-fake\': \'npm:component-fake/dist\'');
+      assert.fileContent('demo/systemjs.config.js', '\'component-fake\': \'npm:component-fake\'');
     });
 
     it('fills the main file with project data', function() {

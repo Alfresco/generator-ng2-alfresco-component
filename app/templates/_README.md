@@ -174,6 +174,7 @@ npm start
 | npm run test | Run unit tests in the console |
 | npm run test-browser | Run unit tests in the browser
 | npm run coverage | Run unit tests and display code coverage report |
+| npm run build.umd |Build the UMD bundle package |
   <% if (authorEmail) { %>
 
 ## History
