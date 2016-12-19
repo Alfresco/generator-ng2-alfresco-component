@@ -195,6 +195,12 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('_gulpfile.ts'),
+      this.destinationPath('gulpfile.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
       this.templatePath('_sourceFile.ts'),
       this.destinationPath('src/' + this.props.projectName + '.component.ts'),
       this.props
