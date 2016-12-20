@@ -29,7 +29,7 @@ var paths = {
 };
 
 var map = {
-    'app': 'base/dist',
+    'app': 'base/src',
     // angular bundles
     '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
     '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -54,7 +54,7 @@ var map = {
     'ng2-translate': 'npm:ng2-translate',
 
     'alfresco-js-api': 'npm:alfresco-js-api/dist',
-    'ng2-alfresco-core': 'npm:ng2-alfresco-core/dist',
+    'ng2-alfresco-core': 'npm:ng2-alfresco-core'
 };
 
 var packages = {
@@ -63,7 +63,7 @@ var packages = {
     'ng2-translate': { defaultExtension: 'js' },
 
     'alfresco-js-api': { main: './alfresco-js-api.js', defaultExtension: 'js'},
-    'ng2-alfresco-core': { main: './index.js', defaultExtension: 'js'},
+    'ng2-alfresco-core': { main: './index.js', defaultExtension: 'js'}
 };
 
 var config = {
