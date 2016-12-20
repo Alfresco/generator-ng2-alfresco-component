@@ -6,14 +6,16 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "clean": "npm install rimraf && rimraf dist node_modules typings",
-    "build": "npm run tslint && rimraf dist && npm run tsc",
-    "start": "npm run build && npm run server",
-    "server": "wsrv -o -s",
+    "clean": "npm install rimraf && npm run clean-build && rimraf dist node_modules typings dist",
+    "clean-build" : "rimraf 'src/{,**/}**.js' 'src/{,**/}**.js.map' 'src/{,**/}**.d.ts'",
+    "postinstall": "npm run build",
+    "start": "npm run build && concurrently \"npm run tsc:w\" \"npm run server\" ",
+    "server": "wsrv -o -s -l",
+    "build": "npm run tslint && npm run clean-build && npm run tsc",
+    "build:w": "npm run tslint && rimraf dist && npm run tsc:w",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "tslint": "tslint -c tslint.json *.ts && tslint -c tslint.json src/{,**/}**.ts",
-    "link": "npm link alfresco-js-api ng2-alfresco-core"
+    "tslint": "tslint -c tslint.json *.ts && tslint -c tslint.json src/{,**/}**.ts  -e '{,**/}**.d.ts'"
   },
   "keywords": [
     "ng2",
@@ -46,12 +48,11 @@
     "dialog-polyfill": "^0.4.3",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
 
-    "alfresco-js-api": "^0.5.0",
-    "ng2-alfresco-core": "0.5.0",
+    "alfresco-js-api": "^1.0.0",
+    "ng2-alfresco-core": "1.0.0",
     "<%= projectName %>": "file:../"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.32",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.42",
     "concurrently": "^2.2.0",

@@ -1,7 +1,6 @@
 npm-debug.log
 .idea
 
-assets/
 coverage/
 demo/
 node_modules
@@ -10,8 +9,8 @@ fonts/
 
 /.editorconfig
 /.travis.yml
-/*.js
 /*.json
-/*.ts
-/*.js.map
+/karma-test-shim.js
+/karma.conf.js
+/gulpfile.ts
 /.npmignore

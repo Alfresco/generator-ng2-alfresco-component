@@ -75,6 +75,7 @@ Which will generate project structure similar to the following:
     ├── .editorconfig
     ├── .gitignore
     ├── .travis.yml
+    ├── gulpfile.ts
     ├── index.ts
     ├── karma-test-shim.js
     ├── karma.conf.js
@@ -110,6 +111,7 @@ _Optinally you can use `npm run link` script to locally link ADF libraries if ne
 | npm run test-browser | compiles, runs and watches the karma unit tests (browser version) |
 | num run coverage | runs unit tests, generates and opens code coverage report in browser |
 | npm run link | Link ADF components locally by means of `npm link` |
+| npm run build.umd |Build the UMD bundle package |
 
 ## Running demo
 
