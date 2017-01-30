@@ -2,7 +2,7 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { CoreModule } from 'ng2-alfresco-core';
+import { CoreModule, AlfrescoSettingsService, AlfrescoAuthenticationService, StorageService, LogService } from 'ng2-alfresco-core';
 
 import { <%= projectNameCamelCase %>Module } from '<%= projectName %>';
 
@@ -11,8 +11,12 @@ import { <%= projectNameCamelCase %>Module } from '<%= projectName %>';
   template: `<<%= projectName %>></<%= projectName %>>`
 })
 class DemoApp {
-  constructor() {
-    console.log('constructor');
+
+  constructor(private authService: AlfrescoAuthenticationService,
+              private settingsService: AlfrescoSettingsService,
+              private storage: StorageService,
+              private logService: LogService) {
+    this.logService.info('constructor');
   }
 }
 
