@@ -5,7 +5,7 @@
   "author": "<%- projectAuthor %>",
   "scripts": {
     "clean": "npm install rimraf && npm run clean-build && rimraf dist node_modules typings",
-    "clean-build": "rimraf index.js index.js.map index.d.ts'src/{,**/}**.js' 'src/{,**/}**.js.map' 'src/{,**/}**.d.ts' bundles",
+    "clean-build": "rimraf index.js index.js.map index.d.ts 'src/{,**/}**.js' 'src/{,**/}**.js.map' 'src/{,**/}**.d.ts' bundles",
     "build": "npm run clean-build && npm run tslint && rimraf dist && tsc && npm run build.umd",
     "build:w": "npm run clean-build && npm run tslint && rimraf dist && npm run tsc:w && npm run build.umd",
     "tslint": "tslint -c tslint.json 'src/{,**/}**.ts' 'index.ts'  -e '{,**/}**.d.ts' -e './gulpfile.ts'",
@@ -50,6 +50,7 @@
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.27",
     "zone.js": "^0.6.23",
+    "hammerjs": "^2.0.8",
 
     "material-design-icons": "2.2.3",
     "material-design-lite": "1.2.1",
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.33",
+    "@types/hammerjs": "^2.0.34",
     "@types/node": "^6.0.42",
     "autoprefixer": "^6.5.1",
     "concurrently": "^2.2.0",
