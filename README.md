@@ -74,7 +74,6 @@ Which will generate project structure similar to the following:
     │   └── my-element.component.ts
     ├── .editorconfig
     ├── .gitignore
-    ├── .travis.yml
     ├── gulpfile.ts
     ├── index.ts
     ├── karma-test-shim.js

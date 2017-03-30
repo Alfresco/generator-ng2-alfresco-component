@@ -46,7 +46,6 @@ describe('Alfresco component generator', function() {
 
     it('creates files', function() {
       var expected = [
-        '.travis.yml',
         '.gitignore',
         '.editorconfig',
         'LICENSE',
