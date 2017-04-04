@@ -8,8 +8,8 @@
     "es6": true
   },
   "globals": {
-      "System": true,
-      "__karma__": true
+    "System": true,
+    "__karma__": true
   },
   "rules": {
     "no-console": 0,
@@ -36,14 +36,6 @@
       2,
       "nofunc"
     ],
-    "one-var": [
-      2,
-      "never"
-    ],
-    "quote-props": [
-      2,
-      "as-needed"
-    ],
     "quotes": [
       2,
       "single"
@@ -52,17 +44,13 @@
     "space-before-function-paren": [
       2,
       {
-        "anonymous": "never",
-        "named": "never"
+        "anonymous": "always",
+        "named": "always"
       }
     ],
     "space-in-parens": [
       2,
       "never"
-    ],
-    "strict": [
-      2,
-      "global"
     ],
     "curly": [
       2,
