@@ -23,6 +23,8 @@ module.exports = function (config) {
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
 
+      'node_modules/hammerjs/hammer.js',
+
       // RxJs
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
@@ -71,6 +73,11 @@ module.exports = function (config) {
 
     autoWatch: true,
 
+    captureTimeout: 180000,
+    browserDisconnectTimeout: 180000,
+    browserDisconnectTolerance: 3,
+    browserNoActivityTimeout: 300000,
+
     browsers: ['Chrome'],
 
     customLaunchers: {
@@ -96,7 +103,7 @@ module.exports = function (config) {
     // Source files that you wanna generate coverage for.
     // Do not include tests or libraries (these files will be instrumented by Istanbul)
     preprocessors: {
-      'src/**/!(*spec|index|*mock|*model|mdl*).js': 'coverage'
+      'src/**/!(*spec|index|*mock|*model|*event|mdl*).js': 'coverage'
     },
 
     coverageReporter: {
