@@ -1,12 +1,23 @@
 {
   "name": "generator-ng2-alfresco-component",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Yeoman generator generating angular 2 Alfresco component",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-component",
-  "author": {
-    "name": "Eugenio Romano",
-    "email": "eugenio.romano@alfresco.com"
-  },
+  "author": "Alfresco Software, Ltd.",
+  "contributors": [
+    {
+      "name": "Eugenio Romano",
+      "email": "eugenio.romano@alfresco.com"
+    },
+    {
+      "name": "Denys Vuika",
+      "email": "denys.vuika@gmail.com"
+    },
+    {
+      "name": "Mario Romano",
+      "email": "mario.romano83@gmail.com"
+    }
+  ],
   "files": [
     "app"
   ],
@@ -59,7 +70,7 @@
   },
   "scripts": {
     "clean": "rimraf node_modules typings",
-    "test": "gulp",
+    "test": "gulp ",
 
     "test-generation-component": "rimraf temp && gulp generation-component-test",
     "test-install-component-dependencies": "cd temp/component-test && npm install && npm link && cd -",
