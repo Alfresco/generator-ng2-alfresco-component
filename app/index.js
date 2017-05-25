@@ -141,13 +141,6 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
-    if (this.props.licenseChecker) {
-      this.fs.copyTpl(
-        this.templatePath('_license_header.txt'),
-        this.destinationPath('assets/license_header.txt')
-      );
-    }
-
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
       this.destinationPath('karma.conf.js')
@@ -158,14 +151,64 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('karma-test-shim.js')
     );
 
+    ////config folder
+    //
     this.fs.copy(
-      this.templatePath('_tsconfig.json'),
-      this.destinationPath('tsconfig.json')
+      this.templatePath('config/assets/_license_header.txt'),
+      this.destinationPath('config/assets/license_header.txt')
     );
 
     this.fs.copy(
-      this.templatePath('_tslint.json'),
-      this.destinationPath('tslint.json')
+      this.templatePath('config/assets/_license_header_add.txt'),
+      this.destinationPath('config/assets/license_header_add.txt')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/assets/_tslint.json'),
+      this.destinationPath('config/assets/tslint.json')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/custom-loaders/_file-loader-multi.js'),
+      this.destinationPath('config/custom-loaders/file-loader-multi.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/custom-loaders/_license-check.js'),
+      this.destinationPath('config/custom-loaders/license-check.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/_helpers.js'),
+      this.destinationPath('config/helpers.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/_webpack.common.js'),
+      this.destinationPath('config/webpack.common.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/_webpack.test.js'),
+      this.destinationPath('config/webpack.test.js')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_webpack.build.js'),
+      this.destinationPath('webpack.build.js'),
+      this.props
+    );
+
+    this.fs.copy(
+      this.templatePath('_webpack.test.js'),
+      this.destinationPath('webpack.test.js')
+    );
+    //
+    ////
+
+    this.fs.copy(
+      this.templatePath('_tsconfig.json'),
+      this.destinationPath('tsconfig.json')
     );
 
     this.fs.copy(
@@ -186,12 +229,6 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_index.ts'),
       this.destinationPath('index.ts'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('_gulpfile.ts'),
-      this.destinationPath('gulpfile.ts'),
       this.props
     );
 
