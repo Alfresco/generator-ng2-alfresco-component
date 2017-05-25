@@ -52,11 +52,19 @@ describe('Alfresco component generator', function() {
         'README.md',
         'package.json',
         'tsconfig.json',
-        'tslint.json',
         'index.ts',
         'karma.conf.js',
         'karma-test-shim.js',
-        'assets/license_header.txt',
+        'config/assets/license_header.txt',
+        'config/assets/license_header_add.txt',
+        'config/assets/tslint.json',
+        'config/custom-loaders/file-loader-multi.js',
+        'config/custom-loaders/license-check.js',
+        'config/helpers.js',
+        'config/webpack.common.js',
+        'config/webpack.test.js',
+        'webpack.test.js',
+        'webpack.build.js',
         'demo/.gitignore',
         'demo/.editorconfig',
         'demo/tsconfig.json',
@@ -67,8 +75,7 @@ describe('Alfresco component generator', function() {
         'demo/src/main.ts',
         'demo/systemjs.config.js',
         'src/component-fake.component.ts',
-        'src/component-fake.component.spec.ts',
-        'gulpfile.ts'
+        'src/component-fake.component.spec.ts'
       ];
 
       assert.file(expected);
