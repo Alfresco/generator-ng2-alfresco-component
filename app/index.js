@@ -19,8 +19,8 @@ module.exports = yeoman.Base.extend({
       licenseChecker: false
     };
 
+    this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
     if (this.options.alfresco) {
-      this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
       this.props.licenseChecker = true;
     }
   },

@@ -59,7 +59,7 @@
   },
   "scripts": {
     "clean": "rimraf node_modules typings",
-    "test": "gulp",
+    "test": "gulp ",
 
     "test-generation-component": "rimraf temp && gulp generation-component-test",
     "test-install-component-dependencies": "cd temp/component-test && npm install && npm link && cd -",
