@@ -13,21 +13,8 @@ exports.config = {
     'browserstack.debug': 'true'
   },
 
-  'multiCapabilities': [{
-    'browserName': 'Chrome'
-  }, {
+  'multiCapabilities': [ {
     'browserName': 'Firefox'
-  }, {
-    'browserName': 'Safari',
-    'platform': 'MAC',
-    'version': '9'
-  }, {
-    'browserName': 'iPhone'
-  }, {
-    'browserName': 'android'
-  }, {
-    'browserName': 'internet explorer',
-    'version': '11'
   }],
 
   // Code to start browserstack local before start of test
