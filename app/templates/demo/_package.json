@@ -10,7 +10,7 @@
     "clean-build" : "rimraf 'src/{,**/}**.js' 'src/{,**/}**.js.map' 'src/{,**/}**.d.ts'",
     "postinstall": "npm run build",
     "start": "npm run build && concurrently \"npm run tsc:w\" \"npm run server\" ",
-    "server": "wsrv -o -s -l",
+    "server": "wsrv -o -s -l --port=3000",
     "build": "npm run tslint && npm run clean-build && npm run tsc",
     "build:w": "npm run tslint && rimraf dist && npm run tsc:w",
     "tsc": "tsc",

@@ -73,8 +73,8 @@
     "test": "gulp ",
 
     "test-generation-component": "rimraf temp && gulp generation-component-test",
-    "test-install-component-dependencies": "cd temp/component-test && npm install && npm link && cd -",
-    "test-install-demo-component-dependencies": "cd temp/component-test/demo && npm install && npm link component-test && cd -",
+    "test-install-component-dependencies": "cd temp/component-test && npm install && cd -",
+    "test-install-demo-component-dependencies": "cd temp/component-test/demo && npm install && cd -",
     "test-build-component": "cd temp/component-test && npm run build && cd -",
     "test-cross-browsers": "cd temp/component-test/demo && npm run start & npm run protractor-test",
     "coveralls": "gulp coveralls",
