@@ -92,11 +92,6 @@ module.exports = yeoman.Base.extend({
             return [];
           }
         }
-      },
-      {
-        name: 'generateDemo',
-        message: 'Do you want a demo project to be generated?',
-        type: 'confirm'
       }
     ];
 
@@ -189,8 +184,23 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
+      this.templatePath('config/_webpack.coverage.js'),
+      this.destinationPath('config/webpack.coverage.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('config/_webpack.build.js'),
+      this.destinationPath('config/webpack.build.js')
+    );
+
+    this.fs.copy(
       this.templatePath('config/_webpack.test.js'),
       this.destinationPath('config/webpack.test.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('i18n/_en.json'),
+      this.destinationPath('src/i18n/en.json')
     );
 
     this.fs.copyTpl(
@@ -202,6 +212,11 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('_webpack.test.js'),
       this.destinationPath('webpack.test.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('_webpack.coverage.js'),
+      this.destinationPath('webpack.coverage.js')
     );
     //
     ////
@@ -287,10 +302,6 @@ module.exports = yeoman.Base.extend({
   },
 
   writeDemo: function () {
-    if (!this.props.generateDemo) {
-      return;
-    }
-
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
     this.fs.copyTpl(
