@@ -61,10 +61,16 @@ describe('Alfresco component generator', function() {
         'config/custom-loaders/file-loader-multi.js',
         'config/custom-loaders/license-check.js',
         'config/helpers.js',
+        'config/webpack.build.js',
+        'config/webpack.coverage.js',
         'config/webpack.common.js',
         'config/webpack.test.js',
         'webpack.test.js',
         'webpack.build.js',
+        'webpack.coverage.js',
+        'i18n/src/en.json',
+        'src/component-fake.component.ts',
+        'src/component-fake.component.spec.ts',
         'demo/.gitignore',
         'demo/.editorconfig',
         'demo/tsconfig.json',
@@ -73,9 +79,7 @@ describe('Alfresco component generator', function() {
         'demo/README.md',
         'demo/index.html',
         'demo/src/main.ts',
-        'demo/systemjs.config.js',
-        'src/component-fake.component.ts',
-        'src/component-fake.component.spec.ts'
+        'demo/systemjs.config.js'
       ];
 
       assert.file(expected);
@@ -132,5 +136,6 @@ describe('Alfresco component generator', function() {
     it('fills the main file with project data', function() {
       assert.fileContent('demo/src/main.ts', 'component-fake');
     });
+
   });
 });
