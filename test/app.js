@@ -68,7 +68,7 @@ describe('Alfresco component generator', function() {
         'webpack.test.js',
         'webpack.build.js',
         'webpack.coverage.js',
-        'i18n/src/en.json',
+        'src/i18n/en.json',
         'src/component-fake.component.ts',
         'src/component-fake.component.spec.ts',
         'demo/.gitignore',
